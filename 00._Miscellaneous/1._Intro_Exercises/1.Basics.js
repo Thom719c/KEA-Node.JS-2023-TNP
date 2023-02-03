@@ -23,6 +23,7 @@ const number = 1;
 
 const result = parseInt(year) + number;
 // const result = Number(year) + number;
+// const result = +year + number;
 console.log(result);
 
 
