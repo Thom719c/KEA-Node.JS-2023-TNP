@@ -1,0 +1,17 @@
+anatomy of an URL
+
+
+protocol
+ | http  domain    endpoint   path variable
+http://localhost/kickdinosaur/:id?size=1200
+            top level domain      query string
+
+kickdinosaur/:id = required
+query string = optional
+
+
+
+
+
+
+
