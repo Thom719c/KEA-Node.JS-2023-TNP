@@ -1,0 +1,8 @@
+HTTP Method     Endpoint        Description
+
+GET             /birds          Fetch all birds.
+GET             /birds/<id>     Fetch specific bird id.
+POST            /birds          Create a new bird.
+PUT             /birds/<id>     Updates an existing bird by id.
+PATCH           /birds/<id>     Updates an existing bird by id.
+DELETE          /birds/<id>     Deletes an existing bird by id.

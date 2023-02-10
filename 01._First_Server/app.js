@@ -1,7 +1,9 @@
 // Import
-const app = require("express")();
-/* const express = require("express"); 
-const app = express(); */
+// const app = require("express")();
+const express = require("express"); 
+const app = express();
+
+app.use(express.json());
 
 // route (entire thing)
 // HTTP method
@@ -44,13 +46,20 @@ app.get("/bat", (req, res) => {
     console.log(req.query);
 
     res.send({ message: `The bat is ${req.query.adjective}` });
-})
+});
 
 // path variable
 // /bottle/large
 app.get("/bottle/:bottleSize", (req, res) => {
     res.send({ bottleSize: req.params.bottleSize });
-})
+});
+
+// POST
+app.post("/package", (req, res) => {
+    console.log(req.body);
+
+    res.send({ message: req.body });
+});
 
 
 // 8080 is for http dev
