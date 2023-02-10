@@ -23,6 +23,7 @@ const birds = [
 	}
 ];
 
+
 // GET all birds
 app.get("/birds", (req, res) => {
     res.send({ birds });
@@ -31,10 +32,9 @@ app.get("/birds", (req, res) => {
 
 // GET specific bird by id
 app.get("/birds/:id", (req, res) => {
-    let bird = birds.filter(bird => bird.id === Number(req.params.id))
+    let bird = birds.filter(bird => bird.id === Number(req.params.id));
     res.send({ bird });
 });
-
 
 
 app.listen(8080);
