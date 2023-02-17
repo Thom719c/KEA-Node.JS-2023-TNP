@@ -16,7 +16,8 @@ app.get("/birds", (req, res) => {
 // GET specific bird by id
 app.get("/birds/:id", (req, res) => {
 	const foundBird = birds.find(bird => bird.id === Number(req.params.id));
-	res.send({ data: foundBird });
+	foundBird ? res.status(200).send({ data: foundBird })
+		: res.status(404).send(`No bird with id: ${req.params.id}`);
 });
 
 // POST		/birds			Create a new bird.
