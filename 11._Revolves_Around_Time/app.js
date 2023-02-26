@@ -44,7 +44,7 @@ app.get("/api/countdownTimes", (req, res) => {
 
 app.put("/api/countdownTimes", (req, res) => {
     endtime = req.body.endtime;
-    res.send({ data: req.body.endtime });
+    res.send({ data: endtime });
 });
 
 
