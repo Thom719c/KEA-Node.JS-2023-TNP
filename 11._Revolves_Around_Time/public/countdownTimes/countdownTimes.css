@@ -1,0 +1,61 @@
+body {
+    background-color: rgb(18, 18, 18);
+}
+
+div.container {
+    text-align: center;
+    color: white;
+    margin: 6%;
+}
+
+#countdownTimeDiv {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    font-size: 20px;
+}
+
+.countdown {
+    border: 2px solid green;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(32, 32, 32);
+    box-shadow: 0 4px 8px 0 rgba(143, 143, 143, 0.2),
+        0 6px 20px 0 rgba(143, 143, 143, 0.25);
+}
+
+#days {
+    border-start-start-radius: 15%;
+    border-bottom-left-radius: 15%;
+}
+
+#seconds {
+    border-end-end-radius: 15%;
+    border-top-right-radius: 15%;
+}
+
+#endtime {
+    font-size: 16px;
+    height: 25px;
+    margin-top: 5%;
+}
+
+#endtimeBtn {
+    font-size: 16px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.backButton {
+    width: 80px;
+    height: 35px;
+    font-size: 16px;
+    border-radius: 15px;
+}
+
+.backButton:hover {
+    background-color: green;
+}

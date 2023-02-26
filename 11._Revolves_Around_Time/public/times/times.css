@@ -1,0 +1,51 @@
+body {
+    background-color: rgb(18, 18, 18);
+}
+
+div.container {
+    text-align: center;
+    color: white;
+    margin: 6%;
+}
+
+div.gridContainer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.item {
+    display: flex;
+    flex-basis: calc(25% - 20px);
+    justify-content: center;
+    align-items: center;
+    border: 6px solid rgba(0, 0, 0, 0.8);
+    font-size: 22px;
+    height: 40px;
+    width: 120px;
+    padding: 20px;
+    margin: 0;
+    background-color: rgb(32, 32, 32);
+    box-shadow: 0 4px 8px 0 rgba(0, 150, 0, 0.2),
+        0 6px 20px 0 rgba(0, 150, 0, 0.25);
+}
+
+#timeZone {
+    text-align: center;
+    margin-top: 5%;
+}
+
+#timeZoneSelect {
+    font-size: 20px;
+}
+
+.backButton {
+    width: 80px;
+    height: 35px;
+    font-size: 16px;
+    border-radius: 15px;
+}
+
+.backButton:hover {
+    background-color: green;
+}

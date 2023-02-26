@@ -1,6 +1,6 @@
 // Import
 // const app = require("express")();
-const express = require("express"); 
+const express = require("express");
 const app = express();
 
 app.use(express.json());
@@ -54,12 +54,38 @@ app.get("/bottle/:bottleSize", (req, res) => {
     res.send({ bottleSize: req.params.bottleSize });
 });
 
+// Time
+app.get("/time/time", (req, res) => {
+
+    res.send({
+        timeUTC: new Date(),
+        timeLocal: Date(),
+        unixTime: Date.now()
+    });
+})
+
+/* Assignment get the current day and month in English */
+const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+const month = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+
+app.get("/time/day", (req, res) => {
+    res.send({ data: days[new Date().getDay()] });
+})
+
+app.get("/time/month", (req, res) => {
+    res.send({ data: month[new Date().getMonth()] });
+})
+
+
+
 // POST
 app.post("/package", (req, res) => {
     console.log(req.body);
 
     res.send({ message: req.body });
 });
+
+
 
 
 // 8080 is for http dev

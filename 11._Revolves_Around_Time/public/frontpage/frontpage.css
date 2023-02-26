@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(18, 18, 18);
+}
+
+div.container {
+    display: grid;
+    gap: 15px;
+    justify-content: center;
+}
+
+.title {
+    color: white;
+    text-align: center;
+    margin: 6%;
+}
+
+.timeButton {
+    width: 200px;
+    height: 45px;
+    font-size: 24px;
+    border-radius: 15px;
+}
+
+.timeButton:hover {
+    background-color: green;
+}
