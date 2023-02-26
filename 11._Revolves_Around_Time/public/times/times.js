@@ -1,4 +1,4 @@
-const url = 'http://worldtimeapi.org/api/timezone/';
+const url = 'https://worldtimeapi.org/api/timezone/';
 let clockInterval;
 
 fetch("/api/times/")
