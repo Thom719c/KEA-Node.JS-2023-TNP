@@ -1,4 +1,5 @@
 const url = 'http://worldtimeapi.org/api/timezone/';
+let clockInterval;
 
 fetch("/api/times/")
     .then(response => response.json())
@@ -23,6 +24,7 @@ fetch("/api/times/")
 
         timeZoneSelect.addEventListener("change", () => {
             if (timeZoneSelect.value !== 'Choose...') {
+                clearInterval(clockInterval);
                 fetchWorldTimeAPI(url + timeZoneSelect.value);
             }
         });
@@ -36,10 +38,22 @@ const fetchWorldTimeAPI = (url) => {
             const date = document.getElementById("date");
             date.innerText = result.datetime.split("T")[0];
 
-            const time = document.getElementById("time");
-            time.innerText = result.datetime.split("T")[1].slice(0, 8);
+            const clock = document.getElementById("Clock");
+            clock.innerText = result.datetime.split("T")[1].slice(0, 8);
 
             const utc = document.getElementById("utc");
-            utc.innerText = result.datetime.slice(-6);
+            utc.innerText = result.utc_offset;
+
+            // Adjust the offset and update the clock every second
+            const adjustedOffset = parseInt(result.utc_offset) - 1;
+            clockInterval = setInterval(() => updateClock(clock, adjustedOffset), 1000);
         });
 }
+
+function updateClock(clock, utcOffset) {
+    const currentTime = new Date();
+    currentTime.setHours((currentTime.getHours() + utcOffset));
+    clock.textContent = currentTime.toLocaleTimeString();
+}
+
+

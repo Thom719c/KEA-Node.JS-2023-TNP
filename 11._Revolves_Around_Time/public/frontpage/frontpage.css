@@ -6,6 +6,7 @@ div.container {
     display: grid;
     gap: 15px;
     justify-content: center;
+    margin-bottom: 25px;
 }
 
 .title {
@@ -23,4 +24,13 @@ div.container {
 
 .timeButton:hover {
     background-color: green;
+}
+
+.video {
+    display: block;
+    margin: auto;
+    width: 480px;
+    height: 270px;
+    box-shadow: 0 4px 8px 0 rgba(143, 143, 143, 0.2),
+        0 6px 20px 0 rgba(143, 143, 143, 0.25);
 }
