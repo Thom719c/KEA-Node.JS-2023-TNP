@@ -16,7 +16,7 @@ div.container {
 }
 
 .timeButton {
-    width: 200px;
+    width: 230px;
     height: 45px;
     font-size: 24px;
     border-radius: 15px;
@@ -33,4 +33,10 @@ div.container {
     height: 270px;
     box-shadow: 0 4px 8px 0 rgba(143, 143, 143, 0.2),
         0 6px 20px 0 rgba(143, 143, 143, 0.25);
+}
+
+@media screen and (max-width: 450px) {
+    .video {
+        width: 380px;
+    }
 }

@@ -49,3 +49,13 @@ div.gridContainer {
 .backButton:hover {
     background-color: green;
 }
+
+@media screen and (max-width: 450px) {
+    .item {
+        flex-basis: calc(22% - 20px);
+    }
+
+    .backButton {
+        width: 100px;
+    }
+}
