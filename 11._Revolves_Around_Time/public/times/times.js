@@ -38,7 +38,7 @@ const fetchWorldTimeAPI = (url) => {
             const date = document.getElementById("date");
             date.innerText = result.datetime.split("T")[0];
 
-            const clock = document.getElementById("Clock");
+            const clock = document.getElementById("clock");
             clock.innerText = result.datetime.split("T")[1].slice(0, 8);
 
             const utc = document.getElementById("utc");
