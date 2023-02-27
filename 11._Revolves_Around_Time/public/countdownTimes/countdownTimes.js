@@ -12,7 +12,7 @@ let timeInterval;
 
 function countdownClock(endtime) {
     clearInterval(timeInterval);
-    
+
     const daysP = document.getElementById("days");
     const hoursP = document.getElementById("hours");
     const minutesP = document.getElementById("minutes");
@@ -42,8 +42,8 @@ function getTimeRemaining(endtime) {
     return { totalDifference, days, hours, minutes, seconds };
 }
 
-function enterEndtime() {
-    const endtime = new Date(document.getElementById("endtime").value);
+function enterEndtime(endtime) {
+    // const endtime = new Date(document.getElementById("endtime").value);
 
     fetch("/api/countdownTimes/", {
         method: "PUT",

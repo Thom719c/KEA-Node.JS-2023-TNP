@@ -18,8 +18,8 @@
         <h1>Revolves Around Time</h1>
         <h2>Countdown</h2>
 
-        <input type="datetime-local" id="endtime">
-        <button id="endtimeBtn" onclick="enterEndtime()">Submit Endtime</button>
+        <input type="datetime-local" id="endtime" onchange="enterEndtime(this.value)">
+        <!-- <button id="endtimeBtn" onclick="enterEndtime()">Submit Endtime</button> -->
 
         <div id="countdownTimeDiv">
             <p class="countdown" id="days"></p>
