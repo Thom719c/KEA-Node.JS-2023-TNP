@@ -52,7 +52,8 @@ div.gridContainer {
 
 @media screen and (max-width: 450px) {
     .item {
-        flex-basis: calc(22% - 20px);
+        flex-basis: calc(25% - 5px);
+        padding: 10px;
     }
 
     .backButton {
