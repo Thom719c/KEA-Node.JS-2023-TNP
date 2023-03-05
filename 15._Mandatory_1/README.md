@@ -1,6 +1,7 @@
 # Mandatory 1
 > For now this is kinda a list for myself to what i should have in the pages.
-**This is stil under construction**
+
+# **This is stil under construction**
 
 ## 1. Git in terminal
 > Commands for add to git, then commit and then push it.
