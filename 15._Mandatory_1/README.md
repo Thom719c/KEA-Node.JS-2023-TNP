@@ -37,10 +37,19 @@ npm i express
 ```json
 {
     "dependencies": {
+        "KEY/NAME": "VALUE/VERSION"
+    }
+}
+```
+Heres what is looks like when we wants express
+```json
+{
+    "dependencies": {
         "express": "4.18.2"
     }
 }
 ```
+
 ### how we do it now.
 first we run this command
 ```bash
