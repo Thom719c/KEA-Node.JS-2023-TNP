@@ -33,6 +33,62 @@ npm i express
 
 ## Package.json
 > ...explaining
+### how we startede making our package.json
+```json
+{
+    "dependencies": {
+        "express": "4.18.2"
+    }
+}
+```
+### how we do it now.
+first we run this command
+```bash
+npm init
+```
+what this does is:
+1. Initializes a new Node.js project by creating a package.json file in the current directory.
+2. Asks for information about the project such as the package name, version, description, entry point, test command, repository, keywords, author, and license.
+3. Allows you to confirm the information provided or modify it if necessary.
+4. Creates the package.json file with the provided information or the default values if you skipped any fields.
+5. Sets up the initial project structure and installs any dependencies defined in package.json if using a starter template or a preset configuration.
+6. Displays the generated package.json file in the console for review.
+
+The ```npm init``` command is useful for initializing a new project or updating an existing ```package.json``` file with additional fields, as it helps to manage and install dependencies required by your application.
+
+so example how it looks now plus have added type and installed express after:
+```json
+{
+    "name": "mandatory1",
+    "version": "0.0.1",
+    "description": "Mandatory assignment",
+    "type": "module",
+    "main": "app.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/Thom719c/KEA-Node.JS-2023-TNP.git"
+    },
+    "keywords": [
+        "Mandatory",
+        "1",
+        "learned",
+        "so",
+        "fare"
+    ],
+    "author": "Thom",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/Thom719c/KEA-Node.JS-2023-TNP/issues"
+    },
+    "homepage": "https://github.com/Thom719c/KEA-Node.JS-2023-TNP#readme",
+    "dependencies": {
+        "express": "^4.18.2"
+    }
+}
+```
 
 ## REST API
 > How is should be designed
