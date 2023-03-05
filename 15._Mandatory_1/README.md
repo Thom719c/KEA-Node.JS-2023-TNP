@@ -32,35 +32,45 @@ npm i express
 
 ## REST API
 > How is should be designed
-0. `HTTP Method     Endpoint        Description`
-1. `GET             /cars          Fetch all cars.`
-2. `GET             /cars/<id>     Fetch specific cars id.`
-3. `POST            /cars          Create a new cars.`
-4. `PUT             /cars/<id>     Updates an existing cars by id.`
-5. `PATCH           /cars/<id>     Updates an existing cars by id.`
-6. `DELETE          /cars/<id>     Deletes an existing cars by id.`
 
-  <table>
+<table>
     <thead>
-      <tr>
-        <th>words</th>
-        <th>transform to</th>
-        <th>keepUpperCase is false</th>
-        <th>keepUpperCase is true</th>
-      </tr>
+        <tr>
+            <th>HTTP Method</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+        </tr>
     </thead>
     <tbody>
         <tr>
-            <td>"XML HTTP request"</td>
-            <td>pascalCase</td>
-            <td><code>XmlHttpRequest</code></td>
-            <td><code>XMLHTTPRequest</code></td>
+            <td>GET</td>
+            <td>/cars</td>
+            <td>Fetch all cars.</td>
         </tr>
         <tr>
-            <td>"new customer ID"</td>
-            <td>camelCase</td>
-            <td><code>newCustomerId</code></td>
-            <td><code>newCustomerID</code></td>
+            <td>GET</td>
+            <td>/cars/<id></td>
+            <td>Fetch specific cars id.</td>
+        </tr>
+        <tr>
+            <td>POST</td>
+            <td>/cars</td>
+            <td>Create a new cars.</td>
+        </tr>
+        <tr>
+            <td>PUT</td>
+            <td>/cars/<id></td>
+            <td>Updates an existing cars by id.</td>
+        </tr>
+        <tr>
+            <td>PATCH</td>
+            <td>/cars/<id></td>
+            <td>Updates an existing cars by id.</td>
+        </tr>
+        <tr>
+            <td>DELETE</td>
+            <td>/cars/<id></td>
+            <td>Deletes an existing cars by id.</td>
         </tr>
     </tbody>
-  </table>
+</table>
