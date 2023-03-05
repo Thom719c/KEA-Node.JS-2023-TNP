@@ -1,0 +1,30 @@
+{
+  "name": "mandatory1",
+  "version": "0.0.1",
+  "description": "Mandatory assignment",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thom719c/KEA-Node.JS-2023-TNP.git"
+  },
+  "keywords": [
+    "Mandatory",
+    "1",
+    "learned",
+    "so",
+    "fare"
+  ],
+  "author": "Thom",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Thom719c/KEA-Node.JS-2023-TNP/issues"
+  },
+  "homepage": "https://github.com/Thom719c/KEA-Node.JS-2023-TNP#readme",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}

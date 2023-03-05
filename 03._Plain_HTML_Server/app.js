@@ -2,13 +2,13 @@ const express = require("express");
 const app = express();
 
 // app.use("/public", express.static('./public/'));
-app.use(express.static('public'));
+app.use(express.static("public"));
 
-const tanks = [
-    { name: "Leopard", nationality: "Germany" },
-    { name: "Tiger", nationality: "Germany", year: 1943 },
-    { name: "M1 Abrams", version: "M1" },
-]
+// const tanksUtil = require("./util/tanks.js"); // if .js i doesnt look in node_modules
+// console.log(tanksUtil.getTank())
+const { getTank, addTank } = require("./util/tanks.js");
+// console.log(getTank())
+
 
 let visitorCount = 0;
 
@@ -31,7 +31,7 @@ app.get("/visitors", (req, res) => {
 // API
 
 app.get("/api/tanks", (req, res) => {
-    res.send({ data: tanks });
+    res.send({ data: getTank() });
 });
 
 app.get("/api/visitors", (req, res) => {
@@ -41,6 +41,12 @@ app.get("/api/visitors", (req, res) => {
 app.put("/api/visitors", (req, res) => {
     res.send({ data: ++visitorCount });
 });
+
+
+// Serve a page called museum gaurds
+app.get("/museumGuards", (req, res) => {
+    res.sendFile(__dirname + "/public/museumGuards/museumGuards.html");
+})
 
 
 const PORT = 8080;
