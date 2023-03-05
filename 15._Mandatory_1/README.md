@@ -1,6 +1,4 @@
 # **This is stil under construction**
-# $\colorbox{orange}{{\color{black}{This\ is\ stil\ under\ construction}}}$
-
 # Mandatory 1
 > For now this is kinda a list for myself to what i should have in the pages.
 
