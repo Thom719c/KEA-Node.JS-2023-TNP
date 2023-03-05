@@ -1,10 +1,12 @@
 # **This is stil under construction**
+# $\colorbox{orange}{{\color{black}{This is stil under construction}}}$
+
 # Mandatory 1
 > For now this is kinda a list for myself to what i should have in the pages.
 
 ## 1. Git in terminal
 > Commands for add to git, then commit and then push it.
-```
+```bash
 git add -A
 git commit "decscription"
 git push
@@ -16,18 +18,18 @@ git push
 ## 3. Node.js
 > Ways we can start our app
 
-```
+```bash
 node app.js
 nodemon.cmd "path/app.js"
 ```
 For installing
-```
+```bash
 npm i
 npm install
 ``` 
 
 example for install express:
-```
+```bash
 npm i express
 ```
 
@@ -86,7 +88,7 @@ npm i express
 > ...explain why clean code and following code conventions is a great idea.
 
 ## Scooping
-> always use const if you can get away with it otherwise use let.
+> always use ```const``` if you can get away with it otherwise use ```let```.
 
 ## Functions
 > ...
@@ -101,12 +103,12 @@ npm i express
 
 ## Fetch request
 > ...examples:
-```
+```js
 fetch("/api/cars")
     .then(response => response.json())
     .then(result => console.log(result));
 ```
-```
+```js
 fetch("/api/cars", {
         method: "PUT",
         headers: {
