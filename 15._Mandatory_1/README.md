@@ -39,7 +39,7 @@ npm i express
 4. `PUT             /cars/<id>     Updates an existing cars by id.`
 5. `PATCH           /cars/<id>     Updates an existing cars by id.`
 6. `DELETE          /cars/<id>     Deletes an existing cars by id.`
+
 |HTTP Method||Endpoint||Description|
 | --- || --- || --- |
 |GET||/cars||Fetch all cars.|
-|GET||/cars/<id>||Fetch specific cars id|
