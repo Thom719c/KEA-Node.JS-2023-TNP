@@ -40,6 +40,27 @@ npm i express
 5. `PATCH           /cars/<id>     Updates an existing cars by id.`
 6. `DELETE          /cars/<id>     Deletes an existing cars by id.`
 
-|HTTP Method||Endpoint||Description|
-| --- || --- || --- |
-|GET||/cars||Fetch all cars.|
+  <table>
+    <thead>
+      <tr>
+        <th>words</th>
+        <th>transform to</th>
+        <th>keepUpperCase is false</th>
+        <th>keepUpperCase is true</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>"XML HTTP request"</td>
+            <td>pascalCase</td>
+            <td><code>XmlHttpRequest</code></td>
+            <td><code>XMLHTTPRequest</code></td>
+        </tr>
+        <tr>
+            <td>"new customer ID"</td>
+            <td>camelCase</td>
+            <td><code>newCustomerId</code></td>
+            <td><code>newCustomerID</code></td>
+        </tr>
+    </tbody>
+  </table>
