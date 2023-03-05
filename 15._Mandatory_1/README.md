@@ -1,5 +1,6 @@
 # Mandatory 1
 > For now this is kinda a list for myself to what i should have in the pages.
+**This is stil under construction**
 
 ## 1. Git in terminal
 > Commands for add to git, then commit and then push it.
@@ -29,6 +30,9 @@ example for install express:
 ```
 npm i express
 ```
+
+## Package.json
+> ...explaining
 
 ## REST API
 > How is should be designed
@@ -74,3 +78,44 @@ npm i express
         </tr>
     </tbody>
 </table>
+
+> Understands how to send data with GET requests over HTTP and knows how to do it in Express...
+
+
+## Clean code
+> ...explain why clean code and following code conventions is a great idea.
+
+## Scooping
+> always use const if you can get away with it otherwise use let.
+
+## Functions
+> ...
+
+## ...
+
+## Loop method
+> map, filter, reduce
+
+## Understands the security need for serving static files and can do it in Express.
+> ...
+
+## Fetch request
+> ...examples:
+```
+fetch("/api/cars")
+    .then(response => response.json())
+    .then(result => console.log(result));
+```
+```
+fetch("/api/cars", {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(response => response.json())
+    .then(result =>  console.log(result));
+```
+
+## Deployment
+> [vercel](https://vercel.com/)
