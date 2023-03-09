@@ -1,4 +1,4 @@
-# **This is stil under construction**
+# **This is still under construction**
 # Mandatory 1
 > For now this is kinda a list for myself to what i should have in the pages.
 

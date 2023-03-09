@@ -1,0 +1,107 @@
+<div class="container-fluid">
+
+    <h1>REST API</h1>
+
+    <hr />
+
+    <div class="row">
+        <div class="col-4 col-lg-2">
+            <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
+                <nav class="nav nav-pills flex-column sticky-top">
+                    <a class="nav-link" href="#item-1">Design of Rest API</a>
+                    <a class="nav-link" href="#item-2">How API could look like</a>
+                    <a class="nav-link" href="#item-3">Fecthing</a>
+                </nav>
+            </nav>
+        </div>
+
+        <div class="col-8 col-lg-10">
+            <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true"
+                class="scrollspy-example-2" tabindex="0">
+
+                <div id="item-1">
+                    <h3>Design of Rest API</h3>
+                    <table class="table table-responsive table-striped table-dark">
+                        <thead>
+                            <tr>
+                                <th>HTTP Method</th>
+                                <th>Endpoint</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>GET</td>
+                                <td>/cars</td>
+                                <td>Fetch all cars.</td>
+                            </tr>
+                            <tr>
+                                <td>GET</td>
+                                <td>/cars/:id</td>
+                                <td>Fetch specific cars id.</td>
+                            </tr>
+                            <tr>
+                                <td>POST</td>
+                                <td>/cars</td>
+                                <td>Create a new cars.</td>
+                            </tr>
+                            <tr>
+                                <td>PUT / PATCH</td>
+                                <td>/cars/:id</td>
+                                <td>Updates an existing car by id.</td>
+                            </tr>
+                            <tr>
+                                <td>DELETE</td>
+                                <td>/cars/:id</td>
+                                <td>Deletes an existing car by id.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <hr />
+
+                <div id="item-2">
+                    <h3>How API could look like</h3>
+                    <img class="rounded mx-auto d-block" src="/pages/node/images/APIGetAll.png">
+                    <img class="rounded mx-auto d-block" src="/pages/node/images/APIGetSpecific.png">
+                    <img class="rounded mx-auto d-block" src="/pages/node/images/APIPost.png">
+                    <img class="rounded mx-auto d-block" src="/pages/node/images/APIPatch.png">
+                    <img class="rounded mx-auto d-block" src="/pages/node/images/APIDelete.png">
+                </div>
+
+                <hr />
+
+                <div id="item-3">
+                    <h3>Fetch</h3>
+                    <div class="row row-cols-2 mt-2">
+                        <div class="col">
+                            <h3>Fetch GET</h3>
+                        </div>
+                        <div class="col">
+                            <img class="rounded mx-auto d-block" src="/pages/node/images/fetchGet.png">
+                            <!-- <pre>
+                <code>
+                    fetch("/api/cars")
+                    .then(response => response.json())
+                    .then(result => console.log(result));
+                </code>
+            </pre> -->
+                        </div>
+
+                        <div class="col-12">
+                            <hr />
+                        </div>
+
+                        <div class="col">
+                            <h3>Fetch PUT</h3>
+                        </div>
+                        <div class="col">
+                            <img class="rounded mx-auto d-block" src="/pages/node/images/fetchPut.png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
