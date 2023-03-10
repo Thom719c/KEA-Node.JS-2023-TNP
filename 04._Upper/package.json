@@ -29,6 +29,7 @@
   },
   "homepage": "https://github.com/Thom719c/KEA-Node.JS-2023-TNP#readme",
   "dependencies": {
-    "express": "^4.18.2"
+    "express": "^4.18.2",
+    "sentiment": "^5.0.2"
   }
 }

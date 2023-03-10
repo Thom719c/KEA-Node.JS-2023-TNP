@@ -2,11 +2,12 @@
 import express from "express";
 const app = express();
 
+import path from "path";
 // const jokes = require("./util/jokes.js");
 import jokes from "./util/jokes.js";
-import path from "path";
+// console.log(await jokes.getJoke());
 
-// app.use(express.static("public"));
+app.use(express.static("public"));
 
 const pages = "public/pages/";
 
@@ -18,6 +19,10 @@ app.get("/", (req, res) => {
 app.get("/IRLQuests", (req, res) => {
     res.sendFile(path.resolve("public/pages/IRLQuests/IRLQuests.html"));
 });
+
+app.get("/jokes", (req, res) => {
+    res.sendFile(path.resolve(pages, "jokes/jokes.html"))
+})
 
 /* API */
 
