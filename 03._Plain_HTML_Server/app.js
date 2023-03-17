@@ -1,3 +1,4 @@
+const { response } = require("express");
 const express = require("express");
 const app = express();
 
@@ -32,6 +33,14 @@ app.get("/museumGuards", (req, res) => {
     res.sendFile(__dirname + "/public/museumGuards/museumGuards.html");
 });
 
+app.get("/proxy", (req, res) => {
+    // Task: make a request to https://www.google.com
+    // serve the text data
+    fetch("https://www.google.com")
+        .then(response => response.text())
+        .then(result => res.send(result));
+});
+
 
 /* API */
 
@@ -54,7 +63,7 @@ app.get("/api/guards", (req, res) => {
         return res.redirect("/api/tanks");
     }
     res.send({ message: "You are not allowed to see the tanks. Give us the scret in the query wtring with the key being passport." });
-    
+
 });
 
 /* PORT */

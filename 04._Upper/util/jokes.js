@@ -35,7 +35,5 @@ async function getJoke() {
 // getJoke();
 // console.log(await getJoke());
 
-export default {
-    getJoke
-};
+export default getJoke;
 
