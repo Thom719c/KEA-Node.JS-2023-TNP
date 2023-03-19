@@ -1,0 +1,126 @@
+<h1>Javascript</h1>
+
+<hr />
+
+<div class="row">
+    <div class="col-4 col-lg-2">
+        <nav id="sidebarExpress" class="h-100 flex-column align-items-stretch pe-4 border-end">
+            <nav class="nav nav-pills flex-column sticky-top">
+                <a class="nav-link nav-sidebar" href="#item-1">Variables</a>
+                <a class="nav-link nav-sidebar" href="#item-2">Loops</a>
+                <a class="nav-link nav-sidebar" href="#item-3">Functions</a>
+                <a class="nav-link nav-sidebar" href="#item-4">Code smell</a>
+            </nav>
+        </nav>
+    </div>
+    <div class="col-8 col-lg-10">
+        <div data-bs-spy="scroll" data-bs-target="#sidebarExpress" data-bs-smooth-scroll="true"
+            class="scrollspy-example-2" tabindex="0">
+
+            <div id="item-1">
+                <h3>Variables</h3>
+                <p>
+                    JavaScript has three types of variables:
+                </p>
+
+                <table class="table table-responsive table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Variable</th>
+                            <th>Description</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>var</td>
+                            <td>
+                                A variable declared with var has function scope or global scope, depending on where
+                                it
+                                is declared. var variables can be re-declared and updated.<br>
+                                Using var is generally not recommended in modern JavaScript development because var
+                                variables have function or global scope, and can lead to issues with variable
+                                hoisting
+                                and unintended changes to variables.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>let</td>
+                            <td>
+                                A variable declared with let has block scope, meaning that it is only accessible
+                                within
+                                the block it is declared in. let variables can be updated, but not re-declared in
+                                the
+                                same scope.
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>const</td>
+                            <td>
+                                A variable declared with const has block scope, and its value cannot be changed once
+                                it
+                                has been set.<br>
+                                const variables cannot be re-assigned, which helps prevent unintended changes to
+                                variables that should remain constant throughout your code. This makes it easier to
+                                reason about your code and avoid bugs.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <p>
+                    If you know that a variable's value will never need to be changed, it's best to declare it with
+                    "const". If you know that a variable will need to be re-assigned or updated, then declare it
+                    with
+                    "let".
+                </p>
+                <p>Always use "const" if you can get away with it, otherwise use let.</p>
+            </div>
+
+            <hr />
+
+            <div id="item-2">
+                <h3>Loops</h3>
+                <p>map, filter, reduce</p>
+            </div>
+
+            <hr />
+
+            <div id="item-3">
+                <h3>Functions</h3>
+                <p>...</p>
+                <h5>Here is three ways of declering functions</h5>
+                <p>Function</p>
+                <img class="img-container mx-auto d-block" src="/pages/javascript/images/1Function.png">
+                <p>Annonymous function</p>
+                <img class="img-container mx-auto d-block" src="/pages/javascript/images/2AnnonymousFunction.png">
+                <p>Lambda function (also called arrowfunction)</p>
+                <img class="img-container mx-auto d-block" src="/pages/javascript/images/3Arrowfunction.png">
+
+                <h5>Callback functions</h5>
+                <p>
+
+                </p>
+            </div>
+
+            <hr />
+
+            <div id="item-4">
+                <h3>Code smell</h3>
+                <p>
+                    Code smell is a term used to describe characteristics of code that suggest the presence of
+                    deeper problems. It refers to code that is difficult to maintain, hard to understand, or likely
+                    to lead to errors or bugs. Identifying and addressing code smells is an important part of
+                    development to ensure clean, readable, and maintainable code.
+                </p>
+                <p>
+                    Automated code analysis tools can help identify code smells in software. These tools are
+                    designed to analyze code for issues such as duplicated code, overly complex code, and long
+                    methods or classes. By providing feedback on code quality, these tools can help developers
+                    identify areas for improvement and reduce the risk of bugs and errors. Here is two examples of
+                    code analysis tools "ESLint" and "prettier".
+                </p>
+            </div>
+
+        </div>
+    </div>
+</div>

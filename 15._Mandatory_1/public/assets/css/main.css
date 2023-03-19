@@ -1,0 +1,41 @@
+#logo {
+    max-width: 5em;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1;
+}
+
+footer {
+    background-color: rgb(43, 48, 53);
+    color: white;
+    margin-top: 15px;
+    text-align: center;
+}
+
+#copyright-year {
+    margin: 0.5em;
+}
+
+.img-container {
+    border-radius: 10px;
+    margin: 10px;
+    max-height: 40em;
+    object-fit: contain;
+}
+
+.image:hover {
+    transform: scale(1.2);
+}
+
+/* @media (max-width: 768px) {
+    .img-container {
+        max-width: 50%;
+    }
+} */

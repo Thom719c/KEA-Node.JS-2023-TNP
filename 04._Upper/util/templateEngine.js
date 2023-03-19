@@ -45,16 +45,16 @@ async function renderJokePage() {
     const joke = await getJoke();
 
     if (joke.joke) {
-        jokePage = jokePage.replace("%%JOKE_HTML_CONTENT%%", `<h3>${escape(joke.joke)}<h3>`);
+        jokePage = jokePage.replace("%%JOKE_HTML_CONTENT%%", `<h3>${escape(joke.joke)}</h3>`);
     } else if (joke.setup && joke.delivery) {
         const jokeHtmlContent = `
-            <h3>${escape(joke.setup)}<h3>
-            <h4>...<h4>
-            <h3>${escape(joke.delivery)}<h3>
+            <h3>${escape(joke.setup)}</h3>
+            <h4>...</h4>
+            <h3>${escape(joke.delivery)}</h3>
         `;
         jokePage = jokePage.replace("%%JOKE_HTML_CONTENT%%", jokeHtmlContent);
     } else {
-        jokePage = jokePage.replace("%%JOKE_HTML_CONTENT%%", "<h3>No jokes for you.<h3>");
+        jokePage = jokePage.replace("%%JOKE_HTML_CONTENT%%", "<h3>No jokes for you.</h3>");
     }
 
     const contructedPage = renderPage(jokePage, {

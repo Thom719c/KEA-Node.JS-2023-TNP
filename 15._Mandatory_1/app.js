@@ -1,57 +1,79 @@
 import express from "express";
-import path from "path";
-import fs from "fs";
+import templateEngine from "./util/templateEngine.js";
 
 const app = express();
 
 app.use(express.static("public"));
 
-const pages = "public/pages/";
-const components = "./public/components/";
+const frontpage = templateEngine.readPage(`frontpage/frontpage.html`);
+const frontpagePage = templateEngine.renderPage(frontpage, {
+    documentTitle: "Mandatory I | Home",
+    activePage: "%%ACTIVEPAGEHOME%%"
+});
 
-const navbar = fs.readFileSync(`${components}navbar/navbar.html`).toString();
-const footer = fs.readFileSync(`${components}footer/footer.html`).toString();
+const javascript = templateEngine.readPage(`javascript/javascript.html`);
+const javascriptPage = templateEngine.renderPage(javascript, {
+    documentTitle: "Mandatory I | Javascript",
+    activePage: "%%ACTIVEPAGEJS%%"
+});
 
-const frontpage = fs.readFileSync(`${pages}frontpage/frontpage.html`).toString();
-const nodePage = fs.readFileSync(`${pages}node/nodejs.html`).toString();
-const expressPage = fs.readFileSync(`${pages}node/express.html`).toString();
-const restAPIPage = fs.readFileSync(`${pages}node/restAPI.html`).toString();
-const terminalCommandsPage = fs.readFileSync(`${pages}terminalCommands/terminalCommands.html`).toString();
+const node = templateEngine.readPage(`node/nodejs.html`);
+const nodePage = templateEngine.renderPage(node, {
+    documentTitle: "Mandatory I | Node",
+    activePage: "%%ACTIVEPAGENODE%%"
+});
+
+const expressReadPage = templateEngine.readPage(`node/express.html`);
+const expressPage = templateEngine.renderPage(expressReadPage, {
+    documentTitle: "Mandatory I | Node",
+    activePage: "%%ACTIVEPAGENODE%%"
+});
+
+const restAPI = templateEngine.readPage(`node/restAPI.html`);
+const restAPIPage = templateEngine.renderPage(restAPI, {
+    documentTitle: "Mandatory I | Rest API",
+    activePage: "%%ACTIVEPAGENODE%%"
+});
+
+const terminalCommands = templateEngine.readPage(`terminalCommands/terminalCommands.html`);
+const terminalCommandsPage = templateEngine.renderPage(terminalCommands, {
+    documentTitle: "Mandatory I | Terminal Commands",
+    activePage: "%%ACTIVEPAGECMD%%"
+});
+
+const deployment = templateEngine.readPage(`deployment/deployment.html`);
+const deploymentPage = templateEngine.renderPage(deployment, {
+    documentTitle: "Mandatory I | Deployment",
+    activePage: "%%ACTIVEPAGEDEPLOYMENT%%"
+});
 
 /* PAGES */
 app.get("/", (req, res) => {
-    res.send(navbar
-        .replace("%%ACTIVEPAGEHOME%%", "active")
-        .replace("%%DOCUMENTTITLE%%", "Mandatory I | Node")
-        + frontpage + footer);
+    res.send(frontpagePage);
+});
+
+app.get("/javascript", (req, res) => {
+    res.send(javascriptPage);
 });
 
 app.get("/nodejs", (req, res) => {
-    res.send(navbar
-        .replace("%%ACTIVEPAGENODE%%", "active")
-        .replace("%%DOCUMENTTITLE%%", "Mandatory I | Node")
-        + nodePage + footer);
+    res.send(nodePage);
 });
 
 app.get("/express", (req, res) => {
-    res.send(navbar
-        .replace("%%ACTIVEPAGENODE%%", "active")
-        .replace("%%DOCUMENTTITLE%%", "Mandatory I | Express")
-        + expressPage + footer);
+    res.send(expressPage);
 });
 
 app.get("/restAPI", (req, res) => {
-    res.send(navbar
-        .replace("%%ACTIVEPAGENODE%%", "active")
-        .replace("%%DOCUMENTTITLE%%", "Mandatory I | Rest API")
-        + restAPIPage + footer);
+    res.send(restAPIPage);
 });
 
 app.get("/terminalCommands", (req, res) => {
-    res.send(navbar
-        .replace("%%ACTIVEPAGENODE%%", "active")
-        .replace("%%DOCUMENTTITLE%%", "Mandatory I | Terminal Commands")
-        + terminalCommandsPage + footer);
+    res.send(terminalCommandsPage);
+});
+
+app.get("/deployment", (req, res) => {
+    res.send(deploymentPage);
 });
 
 

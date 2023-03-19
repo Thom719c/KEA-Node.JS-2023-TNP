@@ -1,34 +1,67 @@
-<div class="container-fluid">
-    <div class="row p-5">
+<h1>Terminal Commands</h1>
 
-        <h1>Terminal Commands</h1>
+<hr />
 
-        <hr />
-        
-        <div>
-            <h3>Commands for add to git, then commit and then push it.</h3>    
-            <img class="img-container mx-auto d-block" src="/pages/terminalCommands/images/basicGitCommands.png">
-        </div>
+<div class="row">
+    <div class="col-4 col-lg-2">
+        <nav id="sidebarExpress" class="h-100 flex-column align-items-stretch pe-4 border-end">
+            <nav class="nav nav-pills flex-column sticky-top">
+                <a class="nav-link nav-sidebar" href="#item-1">Basic Commands</a>
+                <a class="nav-link nav-sidebar" href="#item-2">Initializes a new Node.js package</a>
+                <a class="nav-link nav-sidebar" href="#item-3">Install Express</a>
+            </nav>
+        </nav>
+    </div>
+    <div class="col-8 col-lg-10">
+        <div data-bs-spy="scroll" data-bs-target="#sidebarExpress" data-bs-smooth-scroll="true"
+            class="scrollspy-example-2" tabindex="0">
 
-        <hr />
+            <div id="item-1">
+                <h3>Commands for add to git, then commit and then push it.</h3>
+                <img class="img-container mx-auto d-block" src="/pages/terminalCommands/images/basicGitCommands.png">
+            </div>
 
-        <div>
-            <h3>Initializes a new Node.js package</h3>
-            <p>
-                npm init
-                This will start a prompt that asks you a series of questions about your project, such as the project
-                name, version, description, entry point, author, license, and more. You can either answer these
-                questions or press enter to accept the default values.
+            <hr />
 
-                After you've answered all the questions, npm init will generate a package.json file in the root
-                directory of your project with the metadata you've provided. You can then edit this file manually if you
-                need to add or modify any of the metadata later on.
-            </p>
-            <img class="img-container mx-auto d-block" src="/pages/terminalCommands/images/npmInit.png">
-            <p>
-                Overall, npm init is a useful tool that helps you get started with a new Node.js project quickly and
-                easily, by creating a package.json file with the metadata you need for your project.
-            </p>
+            <div id="item-2">
+                <h3>Initializes a new Node.js package</h3>
+                <p>
+                    npm init
+                    This will start a prompt that asks you a series of questions about your project, such as the
+                    project
+                    name, version, description, entry point, author, license, and more. You can either answer
+                    these
+                    questions or press enter to accept the default values.
+
+                    After you've answered all the questions, npm init will generate a package.json file in the
+                    root
+                    directory of your project with the metadata you've provided. You can then edit this file
+                    manually if you
+                    need to add or modify any of the metadata later on.
+                </p>
+                <img class="img-container image mx-auto d-block img-fluid"
+                    src="/pages/terminalCommands/images/npmInit.png">
+                <p>
+                    Overall, npm init is a useful tool that helps you get started with a new Node.js project
+                    quickly and
+                    easily, by creating a package.json file with the metadata you need for your project.
+                </p>
+            </div>
+
+            <hr />
+
+            <div id="item-3">
+                <h3>Install Express</h3>
+                <p>Here is 2 ways you can install express</p>
+                <p>The first way is to add express to the dependencies in package.json file and after that run the
+                    command
+                    <code>npm i</code></code>. The "i" stands for install.
+                    Here is an example how it will look in the package.json.
+                </p>
+                <img class="img-container mx-auto d-block" src="/pages/node/images/packageDependencies.png">
+                <p>The second way you can do it, is use this command</p>
+                <code>npm i express</code>
+            </div>
         </div>
     </div>
 </div>

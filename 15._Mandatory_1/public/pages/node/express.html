@@ -1,53 +1,99 @@
-<div class="container-fluid">
+<h1>Express</h1>
+<hr />
 
-    <h1>Express</h1>
-    <hr />
-
-    <div class="row">
-        <div class="col-4 col-lg-2">
-            <nav id="navbar-example3" class="h-100 flex-column align-items-stretch pe-4 border-end">
-                <nav class="nav nav-pills flex-column sticky-top">
-                    <a class="nav-link" href="#item-1">What is Express?</a>
-                    <a class="nav-link" href="#item-2">Setup express</a>
-                    <a class="nav-link" href="#item-3">How to run an express server</a>
-                    <a class="nav-link" href="#item-4">SSR</a>
-                </nav>
+<div class="row">
+    <div class="col-4 col-lg-2">
+        <nav id="sidebarExpress" class="h-100 flex-column align-items-stretch pe-4 border-end">
+            <nav class="nav nav-pills flex-column sticky-top">
+                <a class="nav-link nav-sidebar" href="#item-1">What is Express?</a>
+                <a class="nav-link nav-sidebar" href="#item-2">Setup express</a>
+                <a class="nav-link nav-sidebar" href="#item-3">How to run an express server</a>
+                <a class="nav-link nav-sidebar" href="#item-4">Server Side Rendering (SSR)</a>
             </nav>
-        </div>
+        </nav>
+    </div>
 
-        <div class="col-8 col-lg-10">
-            <div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-smooth-scroll="true"
-                class="scrollspy-example-2" tabindex="0">
+    <div class="col-8 col-lg-10">
+        <div data-bs-spy="scroll" data-bs-target="#sidebarExpress" data-bs-smooth-scroll="true"
+            class="scrollspy-example-2" tabindex="0">
 
-                <div class="item-1">
-                    <h3>What is Express?</h3>
+            <div id="item-1">
+                <h3>What is Express?</h3>
+                <p>
+                    Express is a web framework for Node.js that simplifies the process of building web applications
+                    and APIs. It provides tools for handling HTTP requests and responses, managing routes, parsing
+                    request bodies, handling cookies, and serving static files. Express is flexible, easy to use,
+                    and has a large community of developers who have created many third-party modules and plugins to
+                    extend its functionality. It is a popular choice for building fast, scalable, and reliable web
+                    applications and APIs.
+                </p>
+            </div>
 
+            <hr />
+
+            <div id="item-2">
+                <h3>Setup express</h3>
+                <p>The first way we learned was to use "require" for importing here's a simpel example</p>
+                <img class="img-container mx-auto d-block" src="/pages/node/images/simpelExpressRequire.png">
+                <p>The other way we learned was with importing express here's a simpel example</p>
+                <img class="img-container mx-auto d-block" src="/pages/node/images/simpelExpressImport.png">
+                <p>This is just a simpel version with a page where it sends "Hello, World!" we have learned to create
+                    API that can full CRUD (Create, read, update and delete) go to <a href="/restAPI#item-2">REST
+                        API</a> if you want to see full rest api</p>
+            </div>
+
+            <hr />
+
+            <div id="item-3">
+                <h3>How to run an express server</h3>
+                <p>
+                    Assuming that you have already installed the framework dependencies, you can include
+                    it in your app.js file, which is the starting point of your server. However, if you haven't
+                    installed it yet, you can see the guide on <a href="/terminalCommands#item-3">how to install
+                        express</a>.
+                </p>
+                <p>
+                    To import it, you need to use the "require" keyword followed by "express()", which is a
+                    top-level function that is exported by the express module
+                    or use "import ... from ..." as shown under <a href="#item-2">Setup express</a>.
+                </p>
+                <p>
+                    When it's completely setup we can use following command to run our express app and this command
+                    is
+                    assuming you at the correct directory and if you not at the right directory you have to "cd" to
+                    the correct directory
+                </p>
+                <div>
+                    <code>
+                            node app.js
+                        </code>
                 </div>
 
-                <hr />
-
-                <div class="item-2">
-                    <h3>Setup express</h3>
-                    <p>The first way we learned was to use require for importing heres an simpel example</p>
-                    <img class="img-container mx-auto d-block" src="/pages/node/images/simpelExpressRequire.png">
-                    <p>The other way we learned was with importing express heres an simpel example</p>
-                    <img class="img-container mx-auto d-block" src="/pages/node/images/simpelExpressImport.png">
-                    <p>This is just a simpel version with a page where we send "Hello, World!" we have learned to create API that can full CRUD (Create, read, update and delete)</p>
+                <p class="mt-2">
+                    But with that command we have to close and run the command again if we do any changes.
+                    Instead we can use nodemon and it's a tool that helps you develop Node.js applications by
+                    automatically restarting the server whenever changes are made to the code.
+                    To use this you have to install it and with the following command it's installed globally.
+                </p>
+                <div>
+                    <code>npm install -g nodemon</code>
                 </div>
+                <p class="mt-2">The -g option tells npm to install nodemon globally, so you can use it from any
+                    directory in your system.</p>
 
-                <hr />
-
-                <div class="item-3">
-                    <h3>How to run an express server</h3>
-
+                <p>This command as shown is again assumed that you are at the correct directory.</p>
+                <div>
+                    <code>
+                            nodemon.cmd .\app.js
+                        </code>
                 </div>
+            </div>
 
-                <hr />
+            <hr />
 
-                <div class="item-4">
-                    <h3>SSR</h3>
+            <div id="item-4">
+                <h3>Server Side Rendering (SSR)</h3>
 
-                </div>
             </div>
         </div>
     </div>

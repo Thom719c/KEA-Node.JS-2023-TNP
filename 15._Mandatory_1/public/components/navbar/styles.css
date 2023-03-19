@@ -2,7 +2,11 @@
     padding-top: 30px;
 }
 
-.img-container {
-    border-radius: 10px;
-    margin: 10px;
+.nav-sidebar {
+    color: green !important;
+}
+
+.nav-sidebar.active {
+    color: white !important;
+    background-color: green !important;
 }
