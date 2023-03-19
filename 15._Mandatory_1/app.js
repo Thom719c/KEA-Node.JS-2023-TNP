@@ -25,13 +25,13 @@ const nodePage = templateEngine.renderPage(node, {
 
 const expressReadPage = templateEngine.readPage(`node/express.html`);
 const expressPage = templateEngine.renderPage(expressReadPage, {
-    documentTitle: "Mandatory I | Node",
+    documentTitle: "Mandatory I | Node - Express",
     activePage: "%%ACTIVEPAGENODE%%"
 });
 
 const restAPI = templateEngine.readPage(`node/restAPI.html`);
 const restAPIPage = templateEngine.renderPage(restAPI, {
-    documentTitle: "Mandatory I | Rest API",
+    documentTitle: "Mandatory I | Node - Rest API",
     activePage: "%%ACTIVEPAGENODE%%"
 });
 
@@ -45,6 +45,12 @@ const deployment = templateEngine.readPage(`deployment/deployment.html`);
 const deploymentPage = templateEngine.renderPage(deployment, {
     documentTitle: "Mandatory I | Deployment",
     activePage: "%%ACTIVEPAGEDEPLOYMENT%%"
+});
+
+const admin = templateEngine.readPage(`admin/admin.html`);
+const adminPage = templateEngine.renderPage(admin, {
+    documentTitle: "Mandatory I | Admin",
+    activePage: "%%ACTIVEPAGEADMIN%%"
 });
 
 /* PAGES */
@@ -74,6 +80,11 @@ app.get("/terminalCommands", (req, res) => {
 
 app.get("/deployment", (req, res) => {
     res.send(deploymentPage);
+});
+
+app.get("/admin", (req, res) => {
+    //TODO login
+    res.send(adminPage);
 });
 
 
