@@ -9,6 +9,8 @@ import path from "path";
 
 app.use(express.static("public"));
 
+app.use(express.urlencoded({extended: true}));
+
 // import renderPage from "./util/templateEngine.js";
 import templateEngine from "./util/templateEngine.js";
 
@@ -26,6 +28,11 @@ const jokesPage = templateEngine.renderPage(jokes, {
 const IRLQuests = templateEngine.readPage(`IRLQuests/IRLQuests.html`);
 const IRLQuestsPage = templateEngine.renderPage(IRLQuests, {
     documentTitle: "Upper | IRLQuests"
+});
+
+const contact = templateEngine.readPage(`contact/contact.html`);
+const contactPage = templateEngine.renderPage(contact, {
+    documentTitle: "Upper | Contact"
 });
 
 /* PAGES */
@@ -50,10 +57,17 @@ app.get("/jokes", async (req, res) => {
     }); */
     const jokePage = await templateEngine.renderJokePage();
     res.send(jokePage);
-})
+});
+
+app.get("/contact", (req, res) => {
+    res.send(contactPage);
+});
 
 /* API */
-
+app.post("/api/contact", (req, res) => {
+    console.log(req.body)
+    res.redirect("/");
+});
 
 /* PORT */
 //const PORT = 8080;
