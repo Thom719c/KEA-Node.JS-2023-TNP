@@ -4,6 +4,19 @@
     <hr />
 
     <div>
+        <h3>What is NodeJS</h3>
+        <p>
+            Node.js is an interpreter of JavaScript that allows developers to run JavaScript code outside of a browser
+            environment. It is based on the Chromium V8 engine and provides a runtime environment that enables
+            JavaScript to be executed on a server. This means that developers can use JavaScript for both client-side
+            and server-side programming without needing to learn another language. Node.js is widely used for
+            server-side programming, powering many popular web applications and websites.
+        </p>
+    </div>
+
+    <hr />
+
+    <div>
         <h3>What is npm</h3>
         <p>
             npm stands for Node Package Manager and it's a tool that comes bundled with Node.js and is used to
@@ -30,13 +43,26 @@
     <div>
         <h3>Package</h3>
         <p>
-
+            The "package.json" is a configuration file in Node.js that contains information about your project such as its
+            name, version, dependencies, and scripts. It is used by Node.js to manage your project's dependencies and to
+            execute scripts. You can use it to install dependencies required by your project with the npm install
+            command and to define custom scripts with the npm run command. The package.json file also allows you to
+            specify the entry point of your application, set environment variables, and define other metadata related to
+            your project.
         </p>
-        <img class="img-container mx-auto d-block" src="/pages/node/images/packageDependencies.png">
-        <img class="img-container mx-auto d-block" src="/pages/node/images/package.png">
+        <p>
+            When we install express in simple project wether it's manually or commnad like.
+            When using command "npm i express" the package.json example look like below.
+            If manually this way we create file called package.json and initialize it as json, by adding {} to the
+            document, then add dependencies like the image below and then use command "npm i".
+        </p>
+        <img class="img-container mx-auto d-block" src="/pages/node/images/packageDependencies.png"
+            alt="dependencies in package.json">
+        <a class="dropdown-item" href="/terminalCommands#item-2">Terminal Command for making package.json like the image
+            below</a>
+        <img class="img-container mx-auto d-block" src="/pages/node/images/package.png"
+            alt="when used npm init, package.json">
 
-        <a class="dropdown-item" href="/terminalCommands">Terminal Command for making package.json like the image
-            above</a>
     </div>
 
 </div>

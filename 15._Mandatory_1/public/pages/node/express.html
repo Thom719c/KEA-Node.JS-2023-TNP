@@ -64,9 +64,7 @@
                     the correct directory
                 </p>
                 <div>
-                    <code>
-                            node app.js
-                        </code>
+                    <code class="prettyprint language-bsh">node app.js</code>
                 </div>
 
                 <p class="mt-2">
@@ -76,16 +74,14 @@
                     To use this you have to install it and with the following command it's installed globally.
                 </p>
                 <div>
-                    <code>npm install -g nodemon</code>
+                    <code class="prettyprint language-bsh">npm install -g nodemon</code>
                 </div>
                 <p class="mt-2">The -g option tells npm to install nodemon globally, so you can use it from any
                     directory in your system.</p>
 
                 <p>This command as shown is again assumed that you are at the correct directory.</p>
                 <div>
-                    <code>
-                            nodemon.cmd .\app.js
-                        </code>
+                    <code class="prettyprint language-bsh">nodemon.cmd .\app.js</code>
                 </div>
             </div>
 
@@ -93,7 +89,101 @@
 
             <div id="item-4">
                 <h3>Server Side Rendering (SSR)</h3>
+                <div>
+                    <h4>What is SSR?</h4>
+                    <p>
+                        SSR (Server-Side Rendering) is a technique used in web development that allows the server to
+                        generate HTML pages that are sent to the client's web browser, rather than relying solely on the
+                        client's browser to generate the HTML. This can result in faster load times and improved user
+                        experience, as the client's browser receives a pre-built HTML page that can be displayed
+                        immediately, rather than waiting for the browser to generate the page.
+                    </p>
+                    <ul>
+                        <li>SSR is a technique for rendering web pages on the server before sending them to the client.
+                        </li>
+                        <li>
+                            It's often used with frameworks like React or Vue, which can render their components to HTML
+                            on
+                            the server.
+                        </li>
+                        <li>
+                            With SSR, the server sends the fully rendered HTML to the client, which can be faster and
+                            more
+                            SEO-friendly than a purely client-side rendered app.
+                        </li>
+                        <li>
+                            SSR requires a backend server to handle the rendering process and send the HTML to the
+                            client.
+                        </li>
+                        <li>
+                            SSR can improve initial page load time, but may not necessarily improve overall app
+                            performance
+                            if the app is highly interactive and requires frequent updates.
+                        </li>
+                    </ul>
+                    <h5>Advantages</h5>
+                    <ul>
+                        <li>
+                            Faster perceived page load times for users since the initial HTML is sent by the server and
+                            can
+                            be rendered before the JavaScript loads.
+                        </li>
+                        <li>Improved SEO since search engines can more easily crawl and index the initial HTML.</li>
+                        <li>Better performance on low-end devices since the server does most of the heavy lifting.</li>
+                    </ul>
+                    <h5>Disadvantages</h5>
+                    <ul>
+                        <li>
+                            Increased server load and complexity since the server has to render the HTML for every
+                            request.
+                        </li>
+                        <li>
+                            Slower time to interactive since the browser has to download and execute the necessary
+                            resources
+                            (HTML, CSS, and JavaScript) before the page can be fully interactive. This can be especially
+                            noticeable on slower devices or connections.
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>How do we do SSR in express?</h4>
+                    <p>
+                        It's important to understand that the SSR logic is not handled by Express, but rather by Node.
+                        This is because Node has a built-in module called FileSystem that allows you to work with your
+                        filesystem.
+                    </p>
+                    <p>
+                        To use server side rendering, we first need to import it into our app.js
+                        we can do this in 2 ways depending what we have done i the project example if we use require
+                        then we can do it this way
+                    </p>
+                    <code class="prettyprint language-js">const fs = require("fs");</code>
 
+                    <p class="mt-2">or else we can use import</p>
+                    <code class="prettyprint language-js">import fs from "fs";</code>
+
+                    <p class="mt-2">Then we can use fs to read our file. Here's an example to frontpage</p>
+                    <code
+                        class="prettyprint language-js">const navbar = fs.readFileSync(`public/pages/frontpage/frontpage.html`).toString();</code>
+                    <p class="mt-2">
+                        When we have done that we are now ready to use SSR.
+                        To descripe the way we gonna structure our files in SSR is like a sandwich → the bread, filling,
+                        bread.
+                        So in our concept is like → header, main, footer. These are called components and they allow us
+                        to reuse HTML elements, so we can avoid duplicating code, such as the navbar, on every HTML
+                        document.
+                    </p>
+                    <img class="img-container mx-auto d-block" src="/pages/node/images/SSRStructure.png">
+                    <p>Explame how the different part looks like first "header" in our case it's navbar</p>
+                    <img class="img-container mx-auto d-block" src="/pages/node/images/header-navbar.png">
+                    <p>Seconnd is main this is where we have what the page have of content example</p>
+                    <img class="img-container mx-auto d-block" src="/pages/node/images/main-frontpage.png">
+                    <p>Then in footer we have example script, footer and closed element as seen below</p>
+                    <img class="img-container mx-auto d-block" src="/pages/node/images/footer.png">
+
+                    <p>Now the app will look like this</p>
+                    <img class="img-container mx-auto d-block" src="/pages/node/images/SSR.png">
+                </div>
             </div>
         </div>
     </div>

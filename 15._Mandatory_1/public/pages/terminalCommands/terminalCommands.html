@@ -9,6 +9,7 @@
                 <a class="nav-link nav-sidebar" href="#item-1">Basic Commands</a>
                 <a class="nav-link nav-sidebar" href="#item-2">Initializes a new Node.js package</a>
                 <a class="nav-link nav-sidebar" href="#item-3">Install Express</a>
+                <a class="nav-link nav-sidebar" href="#item-4">Starting your app</a>
             </nav>
         </nav>
     </div>
@@ -18,7 +19,13 @@
 
             <div id="item-1">
                 <h3>Commands for add to git, then commit and then push it.</h3>
-                <img class="img-container mx-auto d-block" src="/pages/terminalCommands/images/basicGitCommands.png">
+                <code class="prettyprint language-bsh">
+                    git add -A
+                    <br>
+                    git commit -m "description"
+                    <br>
+                    git push
+                </code>
             </div>
 
             <hr />
@@ -54,13 +61,26 @@
                 <h3>Install Express</h3>
                 <p>Here is 2 ways you can install express</p>
                 <p>The first way is to add express to the dependencies in package.json file and after that run the
-                    command
-                    <code>npm i</code></code>. The "i" stands for install.
+                    command "npm i". The "i" stands for install.
                     Here is an example how it will look in the package.json.
                 </p>
                 <img class="img-container mx-auto d-block" src="/pages/node/images/packageDependencies.png">
                 <p>The second way you can do it, is use this command</p>
-                <code>npm i express</code>
+                <code class="prettyprint language-bsh">npm i express</code>
+            </div>
+
+            <hr />
+
+            <div id="item-4">
+                <h3>Starting your app</h3>
+                <p>Here are two ways you can run your Express app assuming you are in the correct directory where your app.js file is located.</p>
+                <p>First one is with node</p>
+                <code class="prettyprint language-bsh">node app.js</code>
+                <p>Second is with nodemon</p>
+                <code class="prettyprint language-bsh">nodemon.cmd .\app.js</code>
+                <p>If you don't have nodemon installed, this is the command to globally install it.</p>
+                <code class="prettyprint language-bsh">npm install -g nodemon</code>
+                <p>For little more information your can go here <a href="/express#item-3">How to run an express server</a></p>
             </div>
         </div>
     </div>

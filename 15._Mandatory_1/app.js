@@ -188,7 +188,7 @@ app.post('/api/admin/create-documentation-page', (req, res) => {
     const pages = getPages();
 
     // Create a new documentation page object and add it to the pages array
-    const newPage = { id: Date.now().toString(), title, content: `<h1>${title}</h1>${htmlContent}` };
+    const newPage = { id: Date.now().toString(), title, content: `<h1>${title}</h1><hr>${htmlContent}` };
     pages.push(newPage);
 
     // Save updated pages to JSON file

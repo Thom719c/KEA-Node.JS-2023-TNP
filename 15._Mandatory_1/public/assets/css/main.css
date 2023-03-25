@@ -38,9 +38,23 @@ footer {
     color: white;
     background-color: green;
 }
+
 .btn-dark-color:hover {
     color: white;
     background-color: rgb(0, 100, 0);
+}
+
+code {
+    background: #f4f4f4;
+    border: 1px solid #ddd;
+    border-left: 3px solid green;
+    page-break-inside: avoid;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 1.6em;
+    max-width: 100%;
+    padding: 1em 1.5em;
+    display: block;
 }
 
 /* @media (max-width: 768px) {
