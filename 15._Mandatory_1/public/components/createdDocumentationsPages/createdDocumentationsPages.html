@@ -15,7 +15,7 @@
                 dropdownPages.appendChild(listItem);
             });
             // Navigate to the selected page when a dropdown item is clicked
-            document.getElementById('dropdown-pages').addEventListener('click', (event) => {
+            dropdownPages.addEventListener('click', (event) => {
                 event.preventDefault();
                 const selectedPageId = event.target.getAttribute('href').substring(1);
                 window.location.href = `/${selectedPageId}`;
