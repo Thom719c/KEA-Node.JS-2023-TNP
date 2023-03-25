@@ -1,11 +1,10 @@
 <script>
-    const dropdownPages = document.getElementById('dropdown-pages');
-
     // Fetch the pages from the API
     fetch('/api/pages')
         .then(response => response.json())
         .then(pages => {
-            // Add a list item for each page to the dropdown menu
+            // Add a list item for each page to the navbar dropdown menu
+            const dropdownPages = document.getElementById('dropdown-pages');
             pages.forEach(page => {
                 const listItem = document.createElement('li');
                 const aLink = document.createElement('a');
@@ -15,12 +14,11 @@
                 listItem.appendChild(aLink);
                 dropdownPages.appendChild(listItem);
             });
+            // Navigate to the selected page when a dropdown item is clicked
+            document.getElementById('dropdown-pages').addEventListener('click', (event) => {
+                event.preventDefault();
+                const selectedPageId = event.target.getAttribute('href').substring(1);
+                window.location.href = `/${selectedPageId}`;
+            });
         });
-
-    // Navigate to the selected page when a dropdown item is clicked
-    dropdownPages.addEventListener('click', (event) => {
-        event.preventDefault();
-        const selectedPageId = event.target.getAttribute('href').substring(1);
-        window.location.href = `/${selectedPageId}`;
-    });
 </script>
