@@ -34,6 +34,15 @@ footer {
     transform: scale(1.2);
 }
 
+.btn-dark-color {
+    color: white;
+    background-color: green;
+}
+.btn-dark-color:hover {
+    color: white;
+    background-color: rgb(0, 100, 0);
+}
+
 /* @media (max-width: 768px) {
     .img-container {
         max-width: 50%;

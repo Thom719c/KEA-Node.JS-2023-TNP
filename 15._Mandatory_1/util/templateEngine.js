@@ -12,7 +12,9 @@ function renderPage(page, config = {}) {
     const footer = fs.readFileSync(`${components}footer/footer.html`).toString()
         .replace("%%FOOTER_YEAR%%", `Copyright © ${new Date().getFullYear()}`);
 
-    return navbar + page + footer;
+    const newDocumentationsPagesJS = fs.readFileSync(`${components}createdDocumentationsPages/createdDocumentationsPages.html`)
+
+    return navbar + page + newDocumentationsPagesJS + footer;
 }
 
 function readPage(pagePath) {

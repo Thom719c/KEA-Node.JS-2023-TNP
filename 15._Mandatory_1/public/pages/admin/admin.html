@@ -1,2 +1,19 @@
 <h1>Admin Panel</h1>
+<h4>Create new documentation page</h4>
 <hr />
+
+<div class="col-8 mx-auto">
+    <form action="/api/admin/create-documentation-page" method="POST">
+        <div class="col form-group">
+            <label for="title" class="fw-bold">Page Title:</label>
+            <input type="text" class="form-control" name="title" required>
+        </div>
+
+        <div class="col form-group  mt-4">
+            <label for="content" class="fw-bold">Page Content:</label>
+            <textarea class="form-control" rows="10" name="content" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-dark-color my-2 float-end">Create New Page</button>
+    </form>
+</div>

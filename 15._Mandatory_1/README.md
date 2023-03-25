@@ -6,7 +6,7 @@
 > Commands for add to git, then commit and then push it.
 ```bash
 git add -A
-git commit "decscription"
+git commit -m "decscription"
 git push
 ```
 
