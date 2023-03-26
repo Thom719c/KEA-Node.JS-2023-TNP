@@ -8,7 +8,8 @@
                 <a class="nav-link nav-sidebar" href="#item-1">What is Express?</a>
                 <a class="nav-link nav-sidebar" href="#item-2">Setup express</a>
                 <a class="nav-link nav-sidebar" href="#item-3">How to run an express server</a>
-                <a class="nav-link nav-sidebar" href="#item-4">Server Side Rendering (SSR)</a>
+                <a class="nav-link nav-sidebar" href="#item-4">Client Side Rendering (CSR)</a>
+                <a class="nav-link nav-sidebar" href="#item-5">Server Side Rendering (SSR)</a>
             </nav>
         </nav>
     </div>
@@ -68,10 +69,10 @@
                 </div>
 
                 <p class="mt-2">
-                    But with that command we have to close and run the command again if we do any changes.
-                    Instead we can use nodemon and it's a tool that helps you develop Node.js applications by
-                    automatically restarting the server whenever changes are made to the code.
-                    To use this you have to install it and with the following command it's installed globally.
+                    However, using the command mentioned above, we need to stop and run the server again every time we
+                    make changes to our code. A better solution when developing is to use nodemon, a tool that automatically restarts
+                    the Node.js server whenever changes are made to the code, making the development process smoother.
+                    To use nodemon, we need to install it globally by running the following command.
                 </p>
                 <div>
                     <code class="prettyprint language-bsh">npm install -g nodemon</code>
@@ -88,6 +89,39 @@
             <hr />
 
             <div id="item-4">
+                <h3>Client Side Rendering (CSR)</h3>
+                <div>
+                    <p>
+                        Client-Side Rendering (CSR) is a technique for building web applications where the client's
+                        browser is responsible for rendering the HTML, CSS, and JavaScript of a web page. When a user
+                        requests a web page, the server sends a bare-bones HTML document that contains links to the CSS
+                        and JavaScript files needed to render the page. Once the browser has loaded these files, it uses
+                        them to build the page and make it interactive. This approach is different from Server-Side
+                        Rendering (SSR), where the server sends a fully-formed HTML page to the client.
+
+                        One of the benefits of CSR is that it can lead to faster load times, since the server only needs
+                        to send a small amount of HTML to the client. Additionally, since the client is responsible for
+                        rendering the page, it can help reduce server load and improve scalability. However, it can also
+                        make it harder to optimize for search engines and can lead to slower initial page loads,
+                        especially on slower devices or connections.
+                    </p>
+                    <h4>Serving static files to the client with express</h4>
+                    <p>
+                        This is a simple example of CSR (Client-Side Rendering) setup using Node.js and Express. In this
+                        example, the server is serving the static files from the public folder and routing the "/"
+                        route to serve the "frontpage.html" file from the "public/pages/frontpage" folder.
+                        When the browser requests the "/" route, the server will respond with the "frontpage.html" file,
+                        which includes the necessary HTML, CSS, and JavaScript code to render the page on the
+                        client-side. The client-side JavaScript will be executed in the browser, which will then render
+                        the page based on the data retrieved from the server or user interactions.
+                    </p>
+                    <img class="img-container mx-auto d-block" src="/pages/node/images/CSR.png">
+                </div>
+            </div>
+
+            <hr />
+
+            <div id="item-5">
                 <h3>Server Side Rendering (SSR)</h3>
                 <div>
                     <h4>What is SSR?</h4>
@@ -181,7 +215,7 @@
                     <p>Then in footer we have example script, footer and closed element as seen below</p>
                     <img class="img-container mx-auto d-block" src="/pages/node/images/footer.png">
 
-                    <p>Now the app will look like this</p>
+                    <p>Now the app.js will look like this</p>
                     <img class="img-container mx-auto d-block" src="/pages/node/images/SSR.png">
                 </div>
             </div>

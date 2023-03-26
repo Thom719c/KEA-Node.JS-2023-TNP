@@ -1,3 +1,100 @@
 <h1>Deployment</h1>
 
 <hr />
+
+<div class="p-3">
+    <h5>Deployment with Vercel</h5>
+    <p>One way to deploy a node.js application is using <a href="https://vercel.com/">Vercel</a> and with this it's easy
+        to setup.</p>
+    <p>
+        The first thing we have to do is create a repository with our project on Github.
+        If you are completely new to Vercel, the guide here will start from the beginning.
+    </p>
+
+    <hr />
+
+    <h5>The vercel.json file.</h5>
+    <p>
+        The first thing we need to do after creating the Github repository is to create a vercel.json file. We will
+        insert what is shown in the image below and push it to Github. Remeber if you have several projects in your
+        repository and only want to deploy one of them you have to insert the vercel file in that folder (where you
+        app.js is).
+    </p>
+    <img class="img-container mx-auto d-block" src="/pages/deployment/images/vercelFile.png">
+    <p>
+        The source where we got it from is here
+        <a href="https://shadowsmith.com/guides/how-to-deploy-an-express-api-to-vercel#4-add-verceljson-configuration">How
+            to deploy an Express API to Vercel - 4. Add vercel.json configuration</a>.
+    </p>
+    <p>
+        The vercel.json file is not completely the same at the source we have changed "src" and "dest" to "app.js"
+        because we are using "app.js" and not the default "index.js".
+    </p>
+
+    <hr />
+
+    <h5>Guide through vercel website.</h5>
+
+    <p>
+        Once we have made the repository on Github and created the vercel file, we can go to the Vercel website. As
+        shown below what the site should look like, we gonna click on "Start Deploying".
+    </p>
+    <img class="img-fluid img-container mx-auto d-block" src="/pages/deployment/images/vercel1.png">
+
+    <p class="mt-5">
+        Now we have to login and we are gonna continue with Github. Then we are gonne Authorize Vercel.
+    </p>
+    <div class="row">
+        <img class="col img-container mx-auto d-block" src="/pages/deployment/images/vercel2github.png">
+        <img class="col img-container mx-auto d-block" src="/pages/deployment/images/vercel2githubPermission.png">
+    </div>
+    
+    <div class="row mt-4">
+        <div class="col">
+            <p class="mt-2">
+                When we have Authorize Vercel we can now import our repository from Github.
+            </p>
+        </div>
+        <div class="col">
+            <img class="img-container d-block" src="/pages/deployment/images/vercel3import.png">
+        </div>
+    </div>
+
+    <p class="mt-5">
+        Now we can configure our project and we only need to do 2 things here.
+    </p>
+
+    <div class="row mt-4">
+        <div class="col">
+            <p class="mt-2">
+                First is optional and that is the "Project Name" if you just want it to be the same as the repository name, then
+                go to the next thing.
+            </p>
+            <p>
+                Second thing is the "Root Directory" this is important if you have a repository where you have several projects
+                then you have to direct it to which one you want and also where you have the vercel file.
+            </p>
+        </div>
+        <div class="col">
+            <img class="img-fluid img-container d-block" src="/pages/deployment/images/vercel4.png">
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col">
+            <p class="mt-2">
+                If you have several project and only what one of your project
+                you can click edit and then you can direct to the right folder then continue.
+                But if you don't just click deploy.
+            </p>
+        </div>
+        <div class="col">
+            <img class="img-fluid img-container d-block" src="/pages/deployment/images/vercel4edit.png">
+        </div>
+    </div>
+
+    <p>
+        Now you can click deploy. It should also now be able to update every time you deploy to you Github repository.
+        So try make a change and push it to your repository.
+    </p>
+</div>
