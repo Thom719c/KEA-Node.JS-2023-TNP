@@ -73,13 +73,23 @@
                     with
                     "let".
                 </p>
-                <p>Always use "const" if you can get away with it, otherwise use let.</p>
+                <p>Always use "const" if you can get away with it, otherwise use "let".</p>
             </div>
 
             <hr />
 
             <div id="item-2">
                 <h3>Loops</h3>
+                <p>
+                    As a quick example, it is generally recommended to avoid using for loops with iterators in
+                    JavaScript. While this is a common practice in languages such as Java, it is not the most efficient
+                    approach in JavaScript, which is a functional language. In fact, avoiding the use of built-in
+                    functions and instead using for loops can often result in bad code quality and should be considered
+                    a code smell. In JavaScript, it is generally better to leverage the language's functional
+                    programming features and use functions like map, reduce, and filter to manipulate arrays and other
+                    data structures. This not only results in more concise and readable code, but can also improve
+                    performance in some cases.
+                </p>
                 <p>map, filter, reduce</p>
             </div>
 
@@ -87,7 +97,25 @@
 
             <div id="item-3">
                 <h3>Functions</h3>
-                <p>...</p>
+                <p>
+                    A JavaScript function is a block of code that performs a specific task or returns a value. You can
+                    think of it as a reusable set of instructions that you can call by name whenever you need it.
+
+                    There are three main types of functions in JavaScript:
+                </p>
+                <p>
+                    Named functions: These are functions that have a name and are defined using the "function" keyword.
+                    They can be called by name from anywhere in your code.
+                </p>
+                <p>
+                    Anonymous functions: These are functions that are not named and are defined using the "function"
+                    keyword. They are typically assigned to a variable and called using that variable.
+                </p>
+                <p>
+                    Arrow functions: These are a shorthand syntax for defining functions that were introduced in ES6.
+                    They are similar to anonymous functions but have a more concise syntax and lexically scoped "this"
+                    keyword.
+                </p>
                 <h5>Here is three ways of declering functions</h5>
                 <p>Function</p>
                 <img class="img-container mx-auto d-block" src="/pages/javascript/images/1Function.png">
@@ -98,7 +126,12 @@
 
                 <h5>Callback functions</h5>
                 <p>
-
+                    A callback function is a function passed as an argument to another function, which will be called
+                    back (or executed) later. In other words, the function that receives the callback will "call back"
+                    the function passed to it at a certain point during its execution. Callback functions are commonly
+                    used in JavaScript to handle asynchronous operations like fetching data from a server, where we pass
+                    a function as a callback to be executed once the data has been received. This allows us to continue
+                    with other tasks until the data is ready, instead of waiting for the operation to complete.
                 </p>
             </div>
 
