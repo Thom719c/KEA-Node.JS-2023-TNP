@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-    <h1>REST API</h1>
+    <h1 class="mt-2">REST API</h1>
 
     <hr />
 
@@ -10,7 +10,7 @@
                 <nav class="nav nav-pills flex-column sticky-top">
                     <a class="nav-link nav-sidebar" href="#item-1">Design of Rest API</a>
                     <a class="nav-link nav-sidebar" href="#item-2">How API could look like</a>
-                    <a class="nav-link nav-sidebar" href="#item-3">Fecthing</a>
+                    <a class="nav-link nav-sidebar" href="#item-3">Fetching</a>
                 </nav>
             </nav>
         </div>
@@ -63,11 +63,83 @@
 
                 <div id="item-2">
                     <h3>How API could look like</h3>
-                    <img class="img-container mx-auto d-block" src="/pages/node/images/APIGetAll.png">
-                    <img class="img-container mx-auto d-block" src="/pages/node/images/APIGetSpecific.png">
-                    <img class="img-container mx-auto d-block" src="/pages/node/images/APIPost.png">
-                    <img class="img-container mx-auto d-block" src="/pages/node/images/APIPatch.png">
-                    <img class="img-container mx-auto d-block" src="/pages/node/images/APIDelete.png">
+                    <h5>GET (read)</h5>
+                    <p>
+                        Here are two GET methods, one for getting all cars in this example, and the other for getting a
+                        specific car by its "id".
+                    </p>
+                    <img class="img-container img-fluid mx-auto d-block" src="/pages/node/images/APIGetAll.png">
+                    <img class="img-container img-fluid mx-auto d-block" src="/pages/node/images/APIGetSpecific.png">
+
+                    <h5>POST (create)</h5>
+                    <p>
+                        This is a POST request, and it is used when we want to create something. In this example, we are
+                        creating a new car.
+                    </p>
+                    <p>
+                        When a client sends a POST request to the "/cars" endpoint, the server retrieves the car data
+                        from the request body using req.body. Then, a unique id is generated for the car by incrementing
+                        the currentId variable. The car object is then added to the cars array using the push() method.
+                    </p>
+                    <p>
+                        Finally, the server sends a response to the client with the new car object in the response body
+                        using res.send().
+                    </p>
+                    <img class="img-container img-fluid mx-auto d-block" src="/pages/node/images/APIPost.png">
+
+                    <h5>PATCH (update)</h5>
+                    <p>
+                        This PATCH REST API is used to update an existing car in the cars array using its ID. Here's how
+                        it works:
+                    </p>
+                    <ul>
+                        <li>The API listens to the PATCH method on the "/cars/:id" route.</li>
+                        <li>
+                            It first finds the index of the car in the cars array using its ID by using the
+                            "findIndex()" method.
+                        </li>
+                        <li>
+                            If the car is not found in the array, it sends a 404 status code with a message saying
+                            "No car with id: {car id}".
+                        </li>
+                        <li>
+                            If the car is found, it creates a copy of the car object using the spread (...) operator,
+                            replaces its properties with the ones from the request body (req.body), and sets its ID to
+                            the found car's ID.
+                        </li>
+                        <li>Then it replaces the found car object in the cars array with the updated car object.</li>
+                        <li>Finally, it sends a response with the updated car object.</li>
+                    </ul>
+                    <p>
+                        In short, this API updates an existing car in the cars array with the new information provided
+                        in the request body.
+                    </p>
+                    <img class="img-container img-fluid mx-auto d-block" src="/pages/node/images/APIPatch.png">
+
+                    <h5>DELETE</h5>
+                    <p>
+                        This API endpoint is designed to handle a DELETE request to delete a car
+                        from the list of cars. It is defined using the Express.js delete() method, with the path
+                        /cars/:id. This means that it can be accessed using a DELETE request to a URL like /cars/123,
+                        where 123 is the ID of the car to be deleted.
+                    </p>
+                    <p>
+                        The function associated with this API endpoint starts by using the findIndex() method to search
+                        for the car with the ID specified in the request parameters (req.params.id). If the car is not
+                        found (i.e., foundCar is -1), it returns a 404 HTTP status code along with an error message
+                        indicating that no car with the given ID was found.
+                    </p>
+                    <p>
+                        If the car is found (i.e., foundCar is not -1), it is removed from the array using the splice()
+                        method. The splice() method removes the car from the array at the position specified by
+                        foundCar, and the [0] at the end of the line retrieves the deleted car object so that it can be
+                        returned in the response.
+                    </p>
+                    <p>
+                        Finally, a 200 HTTP status code is returned along with a success message indicating that the car
+                        was deleted successfully, and the deleted car object is returned in the response.
+                    </p>
+                    <img class="img-container img-fluid mx-auto d-block" src="/pages/node/images/APIDelete.png">
                 </div>
 
                 <hr />
@@ -76,17 +148,17 @@
                     <h3>Fetch</h3>
                     <div class="row row-cols-2 mt-2">
                         <div class="col">
-                            <h3>Fetch GET</h3>
+                            <h5>Fetch GET</h5>
+                            <p>
+                                This code uses the "fetch()" function to send a request to the "/api/cars" endpoint on a
+                                server, which is expected to return a JSON response. The first "then()" method is used to
+                                convert the response to JSON format, and the second "then()" method logs the resulting
+                                data to the console. So basically, this code fetches data from the server and logs it to
+                                the console.
+                            </p>
                         </div>
                         <div class="col">
-                            <img class="img-container mx-auto d-block" src="/pages/node/images/fetchGet.png">
-                            <!-- <pre>
-                <code>
-                    fetch("/api/cars")
-                    .then(response => response.json())
-                    .then(result => console.log(result));
-                </code>
-            </pre> -->
+                            <img class="img-container img-fluid mx-auto d-block" src="/pages/node/images/fetchGet.png">
                         </div>
 
                         <div class="col-12">
@@ -94,10 +166,17 @@
                         </div>
 
                         <div class="col">
-                            <h3>Fetch PUT</h3>
+                            <h5>Fetch PUT</h5>
+                            <p>
+                                This code uses the Fetch API in JavaScript to make a PUT request to the "/api/cars"
+                                endpoint. It sets the "Content-Type" header to "application/json" to indicate that it is
+                                sending JSON data in the request body. Once the request is completed, the response is
+                                converted to JSON format using the ".json()" method and the result is logged to the
+                                console using the "console.log()" function.
+                            </p>
                         </div>
                         <div class="col">
-                            <img class="img-container mx-auto d-block" src="/pages/node/images/fetchPut.png">
+                            <img class="img-container img-fluid mx-auto d-block" src="/pages/node/images/fetchPut.png">
                         </div>
                     </div>
                 </div>

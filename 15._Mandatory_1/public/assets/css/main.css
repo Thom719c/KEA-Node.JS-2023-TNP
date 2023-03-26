@@ -57,6 +57,11 @@ code {
     display: block;
 }
 
+pre {
+    white-space: pre-line;
+    font-size: 15px;
+}
+
 /* @media (max-width: 768px) {
     .img-container {
         max-width: 50%;
