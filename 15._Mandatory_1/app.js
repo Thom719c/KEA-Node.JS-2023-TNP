@@ -102,17 +102,12 @@ app.get("/deployment", (req, res) => {
     res.send(deploymentPage);
 });
 
-app.get("/admin", (req, res) => {
-    //TODO login
-    res.send(adminPage);
-});
-
 // Route for the login page
 app.get('/login', (req, res) => {
     res.send(loginPage.replace("%%ERRORMSG%%", ""));
 });
 
-app.get('/dashboard', (req, res) => {
+app.get('/adminPanel', (req, res) => {
     const userId = req.session.userId;
 
     // Check if user is logged in
@@ -150,6 +145,12 @@ app.get('/page/:pageId', (req, res) => {
 
 
 /* API */
+app.get("/api/isLoggedIn", (req, res) => {
+    // Get the user ID from the session
+    const userId = req.session.userId;
+    res.send({ isLoggedIn: Boolean(userId) });
+});
+
 app.get('/api/pages', (req, res) => {
     // Get the list of pages
     const pages = getPages();
@@ -166,12 +167,23 @@ app.post('/api/login', (req, res) => {
         req.session.userId = user.id;
 
         // Redirect user to dashboard or profile page
-        res.redirect('/dashboard');
+        res.redirect('/adminPanel');
     } else {
         res.send(loginPage.replace("%%ERRORMSG%%", "Invalid login credentials"));
         // res.status(401).send('Invalid login credentials');
     }
 });
+
+app.get('/logout', (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.redirect('/');
+        }
+    });
+});
+
 
 // Route for creating a new documentation page
 app.post('/api/admin/create-documentation-page', (req, res) => {

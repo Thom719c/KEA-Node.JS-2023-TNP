@@ -1,7 +1,35 @@
 </div>
 </main>
 <script>
-    // Fetch the pages from the API
+    /**
+     * Fetch from the API isLoggedIn to check if user is logged in 
+     * and if so then create a button on navbar to admin panel.
+     */
+    fetch('/api/isLoggedIn')
+        .then(response => response.json())
+        .then(res => {
+            const loginLink = document.getElementById('loginLink');
+            if (!res.isLoggedIn) {
+                loginLink.innerText = 'Login';
+                loginLink.href = '/login';
+                return;
+            }
+            loginLink.innerText = 'Logout';
+            loginLink.href = '/logout';
+            const isLoggedInLi = document.getElementById('isLoggedInList');
+            const aLink = document.createElement('a');
+            aLink.href = `/adminPanel`;
+            aLink.innerText = "Admin Panel";
+            aLink.classList.add('nav-link');
+            isLoggedInLi.appendChild(aLink);
+        });
+</script>
+<script>
+    /**
+     * Fetch the pages from the API pages.
+     * If new pages is created is will be added to the dropdown menu
+     * on navbar and now we have a new page that we can go to.
+     */
     fetch('/api/pages')
         .then(response => response.json())
         .then(pages => {
