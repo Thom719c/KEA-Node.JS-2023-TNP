@@ -9,7 +9,8 @@
                 <a class="nav-link nav-sidebar" href="#item-1">Variables</a>
                 <a class="nav-link nav-sidebar" href="#item-2">Loops</a>
                 <a class="nav-link nav-sidebar" href="#item-3">Functions</a>
-                <a class="nav-link nav-sidebar" href="#item-4">Code smell</a>
+                <a class="nav-link nav-sidebar" href="#item-4">Cross Site Scripting (XSS)</a>
+                <a class="nav-link nav-sidebar" href="#item-5">Code smell</a>
             </nav>
         </nav>
     </div>
@@ -90,7 +91,7 @@
                     data structures. This not only results in more concise and readable code, but can also improve
                     performance in some cases.
                 </p>
-                <p>map, filter, reduce</p>
+                <p>Code examples for map, filter, reduce...</p>
             </div>
 
             <hr />
@@ -156,6 +157,34 @@
             <hr />
 
             <div id="item-4">
+                <h3>Cross Site Scripting (XSS)</h3>
+
+                <h5>What is XSS?</h5>
+                <p>
+                    Cross Site Scripting (XSS) is a type of cyber attack that allows an attacker to inject malicious
+                    scripts or code into a website viewed by other users. This happens when a website does not properly
+                    sanitize user inputs, allowing an attacker to inject their own code that can steal user data,
+                    manipulate website content, or even take over user accounts. When a user visits a website that has
+                    been compromised with an XSS attack, the malicious code executes in the user's browser, potentially
+                    causing harm to the user or the website. XSS attacks can be prevented by ensuring that user input is
+                    properly sanitized and validating all data inputs.
+                </p>
+
+                <h5>How can you avoid XSS?</h5>
+                <p>
+                    In JavaScript, when we want to set the content of an element, we can use "innerHTML". However, using
+                    "innerHTML" is a bad practice as it can lead to Cross-Site Scripting (XSS) attacks. The "innerHTML"
+                    property of an element in JavaScript allows you to set the HTML content of an element, which can be
+                    a security risk. To prevent XSS attacks, it's important to sanitize user input and avoid using
+                    "innerHTML" to set dynamic content directly. Instead, you can use safer methods such as "innerText" or
+                    "textContent" to set the content of an element. Additionally, there are libraries available in Node.js
+                    and Express that can help prevent Cross-Site Scripting (XSS) attacks.
+                </p>
+            </div>
+
+            <hr />
+
+            <div id="item-5">
                 <h3>Code smell</h3>
                 <p>
                     Code smell is a term used to describe characteristics of code that suggest the presence of
