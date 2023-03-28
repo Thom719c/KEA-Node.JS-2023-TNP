@@ -1,8 +1,8 @@
 [
     {
         "id": "1",
-        "title": "NodeJS",
-        "content": "<h1>Node.js</h1><hr><p>Documentation about node.</p>"
+        "title": "Svelte",
+        "content": "<h1>Svelte</h1><hr><p>Documentation about Svelte.</p>"
     },
     {
         "id": "2",
