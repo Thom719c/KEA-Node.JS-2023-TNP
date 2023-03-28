@@ -1,9 +1,7 @@
 import express from "express";
 import templateEngine from "./util/templateEngine.js";
 import session from "express-session";
-import { v4 as uuidv4 } from 'uuid';
 import users from "./util/users.js";
-// import pages from "./util/pages/pages.js";
 import { getPages, savePages } from "./util/pages/pages.js";
 
 const app = express();
