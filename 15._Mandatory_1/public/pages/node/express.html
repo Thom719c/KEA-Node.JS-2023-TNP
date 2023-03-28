@@ -51,8 +51,8 @@
                 <p>
                     Assuming that you have already installed the framework dependencies, you can include
                     it in your app.js file, which is the starting point of your server. However, if you haven't
-                    installed it yet, you can see the guide on <a href="/terminalCommands#item-3">how to install
-                        express</a>.
+                    installed it yet, you can see the guide on 
+                    <a href="/terminalCommands#item-4">how to install express</a>.
                 </p>
                 <p>
                     To import it, you need to use the "require" keyword followed by "express()", which is a
@@ -175,8 +175,22 @@
                     </p>
                     <img class="img-container img-fluid mx-auto d-block" src="/pages/node/images/CSR.png">
 
-                    <p>Serve static files from the 'public' directory</p>
-                    <code class="prettyprint language-js">app.use(express.static('public'));</code>
+                    <h5>Serving Multiple Files to Clients with Express</h5>
+                    <p>
+                        When applying what we've learned so far, we are only able to send one HTML file. Even though we
+                        have linked JavaScript and CSS documents as usual, they are not sent with the HTML document. Why
+                        is this? Express has a built-in security measure that restricts the sending of other files. To
+                        allow Express to use and send other files to the client, we need to use the ".use" function
+                        again, like below. The express.static function is located in the node_module serve static and is used to grant
+                        Express access to a specific folder, which is known as the public folder or client folder. This
+                        folder contains all the files that are sent to the client.
+                    </p>
+                    <pre>
+                        <code class="prettyprint language-js"
+                            >// Serve static files from the 'public' directory
+                            app.use(express.static('public'));
+                        </code>
+                    </pre>
                 </div>
             </div>
 

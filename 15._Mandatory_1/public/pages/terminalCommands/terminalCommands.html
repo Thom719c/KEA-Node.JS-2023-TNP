@@ -7,9 +7,10 @@
         <nav id="sidebarExpress" class="h-100 flex-column align-items-stretch pe-4 border-end">
             <nav class="nav nav-pills flex-column sticky-top">
                 <a class="nav-link nav-sidebar" href="#item-1">Basic Commands</a>
-                <a class="nav-link nav-sidebar" href="#item-2">Initializes a new Node.js package</a>
-                <a class="nav-link nav-sidebar" href="#item-3">Install Express</a>
-                <a class="nav-link nav-sidebar" href="#item-4">Starting your app</a>
+                <a class="nav-link nav-sidebar" href="#item-2">Keyboard Shortcuts to Stop the Terminal</a>
+                <a class="nav-link nav-sidebar" href="#item-3">Initializes a new Node.js package</a>
+                <a class="nav-link nav-sidebar" href="#item-4">Install Express</a>
+                <a class="nav-link nav-sidebar" href="#item-5">Starting your app</a>
             </nav>
         </nav>
     </div>
@@ -18,10 +19,12 @@
             class="scrollspy-example-2" tabindex="0">
 
             <div id="item-1">
-                <h3>Commands for add to git, then commit and then push it.</h3>
+                <h3>Basic Git Commands for Cloning, Adding, Committing, and Pushing</h3>
                 <pre>
                     <code class="prettyprint language-bsh"
-                        >git add -A
+                        >// "For cloning a project you can use this line below just replace username and repository."
+                        git clone https://github.com/username/repository.git
+                        git add -A
                         git commit -m "description"
                         git push
                     </code>
@@ -31,6 +34,20 @@
             <hr />
 
             <div id="item-2">
+                <h3>Keyboard Shortcuts to Stop the Terminal</h3>
+                <pre>
+                    <code class="prettyprint language-bsh"
+                        >// "This is used to interrupt or stop a running process."
+                        ^C
+                        // "This is used to signal the end of input or to exit a program."
+                        ^D
+                    </code>
+                </pre>
+            </div>
+
+            <hr />
+
+            <div id="item-3">
                 <h3>Initializes a new Node.js package</h3>
                 <p>
                     npm init
@@ -57,7 +74,7 @@
 
             <hr />
 
-            <div id="item-3">
+            <div id="item-4">
                 <h3>Install Express</h3>
                 <p>Here is 2 ways you can install express</p>
                 <p>The first way is to add express to the dependencies in package.json file and after that run the
@@ -71,7 +88,7 @@
 
             <hr />
 
-            <div id="item-4">
+            <div id="item-5">
                 <h3>Starting your app</h3>
                 <p>Here are two ways you can run your Express app assuming you are in the correct directory where your app.js file is located.</p>
                 <p>First one is with node</p>

@@ -16,7 +16,7 @@ footer {
     background-color: rgb(43, 48, 53);
     color: white;
     margin-top: 15px;
-    text-align: center;
+    /* text-align: center; */
 }
 
 #copyright-year {
@@ -65,6 +65,13 @@ pre {
 .boxshadow {
     box-shadow: 0 4px 8px 0 rgba(143, 143, 143, 0.2),
         0 6px 20px 0 rgba(143, 143, 143, 0.25);
+}
+
+.text-gradient {
+    background: -webkit-linear-gradient(#0dde29, #0DB8DE);
+    background-clip: text; /* Standard property for compatibility */
+    -webkit-background-clip: text; /* For webkit-based browsers */
+    -webkit-text-fill-color: transparent;
 }
 
 /* @media (max-width: 768px) {

@@ -1,0 +1,26 @@
+<h1 class="mt-2">Contact</h1>
+
+<hr />
+
+<div class="col-8 mx-auto">
+    <h3 class="mt-2">Leave some feedback</h3>
+    
+    <form action="/api/contact" method="POST">
+        <div class="col form-group">
+            <label>Subject</label>
+            <input type="text" class="form-control" name="subject" placeholder="subject" required>
+        </div>
+
+        <div class="col form-group mt-4">
+            <label>Email</label>
+            <input type="email" class="form-control" name="email" placeholder="your email" required>
+        </div>
+
+        <div class="col form-group mt-4">
+            <label>Message</label>
+            <textarea cols="30" class="form-control" rows="10" name="message" placeholder="message / feedback"></textarea>
+        </div>
+
+        <button class="btn btn-dark-color my-2 float-end">Send feedback</button>
+    </form>
+</div>

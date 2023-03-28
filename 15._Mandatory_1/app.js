@@ -21,7 +21,8 @@ app.use(session({
 const frontpage = templateEngine.readPage(`frontpage/frontpage.html`);
 const frontpagePage = templateEngine.renderPage(frontpage, {
     documentTitle: "Mandatory I | Home",
-    activePage: "%%ACTIVEPAGEHOME%%"
+    activePage: "%%ACTIVEPAGEHOME%%",
+    cssLink: `<link rel="stylesheet" href="pages/frontpage/frontpage.css">`
 });
 
 const javascript = templateEngine.readPage(`javascript/javascript.html`);
@@ -58,6 +59,11 @@ const deployment = templateEngine.readPage(`deployment/deployment.html`);
 const deploymentPage = templateEngine.renderPage(deployment, {
     documentTitle: "Mandatory I | Deployment",
     activePage: "%%ACTIVEPAGEDEPLOYMENT%%"
+});
+
+const contact = templateEngine.readPage(`contact/contact.html`);
+const contactPage = templateEngine.renderPage(contact, {
+    documentTitle: "Mandatory I | Contact"
 });
 
 const admin = templateEngine.readPage(`admin/admin.html`);
@@ -100,6 +106,10 @@ app.get("/terminalCommands", (req, res) => {
 
 app.get("/deployment", (req, res) => {
     res.send(deploymentPage);
+});
+
+app.get("/contact", (req, res) => {
+    res.send(contactPage);
 });
 
 // Route for the login page

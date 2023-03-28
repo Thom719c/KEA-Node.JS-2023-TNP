@@ -9,6 +9,7 @@
                 <a class="nav-link nav-sidebar" href="#item-1">Variables</a>
                 <a class="nav-link nav-sidebar" href="#item-2">Loops</a>
                 <a class="nav-link nav-sidebar" href="#item-3">Functions</a>
+                <a class="nav-link nav-sidebar" href="#item-4">JavaScript Comparison Operators: "==" vs "==="</a>
                 <a class="nav-link nav-sidebar" href="#item-4">Cross Site Scripting (XSS)</a>
                 <a class="nav-link nav-sidebar" href="#item-5">Code smell</a>
             </nav>
@@ -91,7 +92,95 @@
                     data structures. This not only results in more concise and readable code, but can also improve
                     performance in some cases.
                 </p>
-                <p>Code examples for map, filter, reduce...</p>
+                <h5>Code examples for map, filter...</h5>
+                <p>
+                    "map()" is used to transform each element in an array by applying a function to it and returning a
+                    new
+                    array with the transformed elements. It's useful when you want to create a new array based on an
+                    existing array, where each element is transformed in a specific way.
+                </p>
+                <pre>
+                    <code class="prettyprint language-js"
+                        >// Map method
+                        const numbers = [1, 2, 3, 4, 5];
+                        const doubledNumbers = numbers.map((num) => num * 2);
+                        console.log(doubledNumbers); // Output: [2, 4, 6, 8, 10]
+                    </code>
+                </pre>
+                <p>
+                    "filter()" is used to create a new array containing only the elements that pass a certain condition.
+                    It's useful when you want to filter out specific elements from an array based on a condition.
+                </p>
+                <pre>
+                    <code class="prettyprint language-js"
+                        >// Filter method
+                        const names = ["Alice", "Bob", "Peter", "Thomas", "Eve"];
+                        const filteredNames = names.filter((name) => name.length > 4);
+                        console.log(filteredNames); // Output: ["Alice", "Peter", "Thomas"]
+                    </code>
+                </pre>
+                <p>
+                    "find()" is a loop method that returns the value of the first element in the array that satisfies
+                    the
+                    provided testing function. It's useful when you need to find the first element in an array that
+                    meets some condition.
+                </p>
+                <pre>
+                    <code class="prettyprint language-js"
+                        >// Find method
+                        const numbers = [1, 2, 3, 4, 5, 6];
+                        const firstEvenNumber = numbers.find(number => number % 2 === 0);
+                        console.log(firstEvenNumber); // 2
+                    </code>
+                </pre>
+                <p>
+                    The "findIndex()" method returns the index of the first element of an array that passes a certain
+                    test. It's useful when you want to find the index of a specific element in an array.
+                </p>
+                <pre>
+                    <code class="prettyprint language-js"
+                        >// FindIndex method
+                        const cars = [
+                        &nbsp;&nbsp;&nbsp;{ brand: 'Toyota', model: 'Corolla', year: 2010 },
+                        &nbsp;&nbsp;&nbsp;{ brand: 'Honda', model: 'Civic', year: 2015 },
+                        &nbsp;&nbsp;&nbsp;{ brand: 'Ford', model: 'Mustang', year: 2020 },
+                        &nbsp;&nbsp;&nbsp;{ brand: 'Chevrolet', model: 'Camaro', year: 2018 },
+                        &nbsp;&nbsp;&nbsp;{ brand: 'Nissan', model: 'Altima', year: 2013 },
+                        ];
+                        // Find the index of the first car made by Honda
+                        const hondaIndex = cars.findIndex(car => car.brand === 'Honda');
+                        console.log(hondaIndex); // 1
+                    </code>
+                </pre>
+                <h5>When to Use Each Method</h5>
+                <p>
+                    In general, you should choose the appropriate loop method based on the task at hand. If you need to
+                    transform an array into a new one, use map(). If you need to filter out specific elements from an
+                    array, use filter(). If you need to compute a value based on an array, use reduce(). However, it's
+                    also important to consider the complexity and performance of each method, especially when working
+                    with large arrays. For example, map() and filter() create new arrays, which can be memory-intensive,
+                    while reduce() iterates over each element of an array, which can be slower than the other methods.
+                </p>
+                <ul>
+                    <li>
+                        Use map when you need to transform an array of values into a new array of values based on some
+                        logic, while maintaining the same length of the original array.
+                    </li>
+                    <li>
+                        Use filter when you need to select a subset of elements from an array based on a certain
+                        condition. This is particularly useful when you need to filter out specific elements from an
+                        array based on some logic or criteria. Filter() is an effective way to remove unwanted data from
+                        an array while keeping only the elements that meet your specified conditions.
+                    </li>
+                    <li>
+                        Use find when you need to find the first element in an array that meets some condition.
+                        Like when you need to search for a specific element in an array.
+                    </li>
+                    <li>
+                        Use findIndex when you need to find the index of the first element in an array that meets some
+                        condition.
+                    </li>
+                </ul>
             </div>
 
             <hr />
@@ -157,6 +246,41 @@
             <hr />
 
             <div id="item-4">
+                <h3>JavaScript Comparison Operators: "==" vs "==="</h3>
+                <p>
+                    "==" is a loose equality operator, which means that it will attempt to convert the operands to the
+                    same type before comparison. For example, "5" == 5 would be true because the string "5" would be
+                    converted to the number 5 before the comparison is made. However, this can sometimes lead to
+                    unexpected results, especially when comparing values of different types.
+                </p>
+                <pre>
+                    <code class="prettyprint language-js"
+                        >console.log(1 == "1"); // Output: true
+                        console.log(1 == 1); // Output: true
+                    </code>
+                </pre>
+                <p>
+                    "===" is a strict equality operator, which means that it compares the operands without attempting
+                    any
+                    type conversion. It only returns true if the operands are of the same type and have the same value.
+                    For example, "5" === 5 would be false because they are of different types.
+                </p>
+                <pre>
+                    <code class="prettyprint language-js"
+                        >console.log(1 === "1"); // Output: false
+                        console.log(1 === 1); // Output: true
+                    </code>
+                </pre>
+                <p>
+                    In general, it's a good practice to use "===" for equality comparison, as it's more precise and avoids
+                    unexpected type conversions. However, there may be some cases where "==" is more appropriate, such as
+                    when checking for null or undefined values.
+                </p>
+            </div>
+
+            <hr />
+
+            <div id="item-5">
                 <h3>Cross Site Scripting (XSS)</h3>
 
                 <h5>What is XSS?</h5>
@@ -176,15 +300,17 @@
                     "innerHTML" is a bad practice as it can lead to Cross-Site Scripting (XSS) attacks. The "innerHTML"
                     property of an element in JavaScript allows you to set the HTML content of an element, which can be
                     a security risk. To prevent XSS attacks, it's important to sanitize user input and avoid using
-                    "innerHTML" to set dynamic content directly. Instead, you can use safer methods such as "innerText" or
-                    "textContent" to set the content of an element. Additionally, there are libraries available in Node.js
+                    "innerHTML" to set dynamic content directly. Instead, you can use safer methods such as "innerText"
+                    or
+                    "textContent" to set the content of an element. Additionally, there are libraries available in
+                    Node.js
                     and Express that can help prevent Cross-Site Scripting (XSS) attacks.
                 </p>
             </div>
 
             <hr />
 
-            <div id="item-5">
+            <div id="item-6">
                 <h3>Code smell</h3>
                 <p>
                     Code smell is a term used to describe characteristics of code that suggest the presence of
