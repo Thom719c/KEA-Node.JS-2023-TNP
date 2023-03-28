@@ -13,12 +13,17 @@ body {
 
 .login-title {
     /* margin-top: 15px; */
-    margin-top: 55px;
+    margin-top: 35px;
     text-align: center;
     font-size: 30px;
     letter-spacing: 2px;
     font-weight: bold;
     color: #ECF0F5;
+    /* background: -webkit-linear-gradient(#27EF9F, #0DB8DE); */
+    background: -webkit-linear-gradient(#0dde29, #0DB8DE);
+    background-clip: text; /* Standard property for compatibility */
+    -webkit-background-clip: text; /* For webkit-based browsers */
+    -webkit-text-fill-color: transparent;
 }
 
 .login-form {

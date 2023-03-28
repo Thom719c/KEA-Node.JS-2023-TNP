@@ -9,7 +9,8 @@
                 <a class="nav-link nav-sidebar" href="#item-2">Setup express</a>
                 <a class="nav-link nav-sidebar" href="#item-3">How to run an express server</a>
                 <a class="nav-link nav-sidebar" href="#item-4">Client Side Rendering (CSR)</a>
-                <a class="nav-link nav-sidebar" href="#item-5">Server Side Rendering (SSR)</a>
+                <a class="nav-link nav-sidebar" href="#item-5">Serving static files to the client with express</a>
+                <a class="nav-link nav-sidebar" href="#item-6">Server Side Rendering (SSR)</a>
             </nav>
         </nav>
     </div>
@@ -105,9 +106,16 @@
                         make it harder to optimize for search engines and can lead to slower initial page loads,
                         especially on slower devices or connections.
                     </p>
-                    <h4>Serving static files to the client with express</h4>
+                </div>
+            </div>
+
+            <hr />
+
+            <div id="item-5">
+                <h3>Serving static files to the client with express</h3>
+                <div>
                     <p>
-                        This is a simple example of CSR (Client-Side Rendering) setup using Node.js and Express. In this
+                        This is a simple example of CSR setup using Node.js and Express. In this
                         example, the server is serving the static files from the public folder and routing the "/"
                         route to serve the "frontpage.html" file from the "public/pages/frontpage" folder.
                         When the browser requests the "/" route, the server will respond with the "frontpage.html" file,
@@ -116,12 +124,15 @@
                         the page based on the data retrieved from the server or user interactions.
                     </p>
                     <img class="img-container img-fluid mx-auto d-block" src="/pages/node/images/CSR.png">
+
+                    <p>Serve static files from the 'public' directory</p>
+                    <code class="prettyprint language-js">app.use(express.static('public'));</code>
                 </div>
             </div>
 
             <hr />
 
-            <div id="item-5">
+            <div id="item-6">
                 <h3>Server Side Rendering (SSR)</h3>
                 <div>
                     <h4>What is SSR?</h4>

@@ -160,7 +160,7 @@ app.get('/api/pages', (req, res) => {
 app.post('/api/login', (req, res) => {
     const { email, password } = req.body;
     const user = users.find((user) => email === user.email);
-
+    
     // Validate user's credentials here
     if (user && user.password === password) {
         // Store the user ID in the session. Setups session to keep user logged in
