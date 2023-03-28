@@ -71,7 +71,8 @@
 
                 <p class="mt-2">
                     However, using the command mentioned above, we need to stop and run the server again every time we
-                    make changes to our code. A better solution when developing is to use nodemon, a tool that automatically restarts
+                    make changes to our code. A better solution when developing is to use nodemon, a tool that
+                    automatically restarts
                     the Node.js server whenever changes are made to the code, making the development process smoother.
                     To use nodemon, we need to install it globally by running the following command.
                 </p>
@@ -106,6 +107,55 @@
                         make it harder to optimize for search engines and can lead to slower initial page loads,
                         especially on slower devices or connections.
                     </p>
+                    <h5>Advantages</h5>
+                    <ul>
+                        <li>
+                            Faster subsequent load times: With CSR, subsequent page loads are faster since only
+                            necessary data is requested from the server, resulting in faster load times.
+                        </li>
+                        <li>
+                            More interactive UI: Client-side rendering frameworks like React and Vue enable developers
+                            to create more dynamic and complex UIs, resulting in a more flexible and interactive user
+                            experience.
+                        </li>
+                        <li>
+                            Better support for dynamic content: Client-side rendering allows dynamic content to be
+                            updated easily and without requiring a page reload, making it ideal for content that changes
+                            frequently.
+                        </li>
+                        <li>
+                            Reduced server load: Since most of the work is done on the client-side, the server load is
+                            significantly reduced.
+                        </li>
+                        <li>
+                            Easier to maintain: With CSR, updates can be made quickly and easily, making maintenance
+                            less time-consuming.
+                        </li>
+                    </ul>
+                    <h5>Disadvantages</h5>
+                    <ul>
+                        <li>
+                            Slower initial load time: The browser has to download and execute JavaScript before
+                            rendering the page, which can result in slower initial load times compared to server-side
+                            rendering.
+                        </li>
+                        <li>
+                            SEO challenges: Client-side rendering can pose challenges for search engines as the content
+                            is generated dynamically, which may lead to lower search engine rankings.
+                        </li>
+                        <li>
+                            Security challenges: Rendering HTML on the client-side can make it more difficult to prevent
+                            client-side vulnerabilities, such as cross-site scripting (XSS) attacks.
+                        </li>
+                        <li>
+                            Dependence on JavaScript: Client-side rendering depends on JavaScript being enabled, which
+                            may be an issue for users who have it disabled or for accessibility concerns.
+                        </li>
+                        <li>
+                            Lower performance on low-powered devices: Low-powered devices may struggle with the
+                            processing demands of client-side rendering, leading to slower page load times.
+                        </li>
+                    </ul>
                 </div>
             </div>
 
