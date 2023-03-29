@@ -6,10 +6,11 @@ import path from "path";
 // const jokes = require("./util/jokes.js");
 // import getJoke from "./util/jokes.js";
 // console.log(await jokes.getJoke());
+import nodemailer from "./util/nodemailer.js";
 
 app.use(express.static("public"));
 
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 
 // import renderPage from "./util/templateEngine.js";
 import templateEngine from "./util/templateEngine.js";
@@ -63,9 +64,11 @@ app.get("/contact", (req, res) => {
     res.send(contactPage);
 });
 
+
 /* API */
-app.post("/api/contact", (req, res) => {
+app.post("/api/contact", async (req, res) => {
     console.log(req.body)
+    nodemailer(req.body).catch(console.error);
     res.redirect("/");
 });
 

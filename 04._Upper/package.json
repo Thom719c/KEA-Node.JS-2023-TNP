@@ -35,6 +35,7 @@
   "dependencies": {
     "escape-html": "^1.0.3",
     "express": "^4.18.2",
+    "nodemailer": "^6.9.1",
     "sentiment": "^5.0.2"
   },
   "devDependencies": {
