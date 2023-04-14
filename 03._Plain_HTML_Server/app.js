@@ -42,29 +42,19 @@ app.get("/proxy", (req, res) => {
 });
 
 
+/* 
+    Task create three routers called tanksRouter.js, visitorsRouter.js, gaurdsRouter.js
+    and move the routes below into those files.
+*/
 /* API */
+import tanksRouter from "./routers/tanksRouter.js";
+app.use(tanksRouter);
 
-app.get("/api/tanks", (req, res) => {
-    res.send({ data: getTank() });
-});
+import visitorsRouter from "./routers/visitorsRouter.js";
+app.use(visitorsRouter);
 
-app.get("/api/visitors", (req, res) => {
-    res.send({ data: visitorCount });
-});
-
-app.put("/api/visitors", (req, res) => {
-    res.send({ data: ++visitorCount });
-});
-
-// Server sitet redirect
-app.get("/api/guards", (req, res) => {
-    // http://localhost:8080/api/guards?passport=theskyisblue
-    if (req.query.passport === "theskyisblue") {
-        return res.redirect("/api/tanks");
-    }
-    res.send({ message: "You are not allowed to see the tanks. Give us the scret in the query wtring with the key being passport." });
-
-});
+import guardsRouter from "./routers/guardsRouter.js";
+app.use(guardsRouter);
 
 /* PORT */
 const PORT = 8080;
