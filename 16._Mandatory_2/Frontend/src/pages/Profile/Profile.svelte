@@ -1,7 +1,8 @@
 <script>
   import { session, serverURL, serverEndpoints } from "../../stores/stores.js";
-  import Logout from "../../components/Authentication/Logout.svelte";
   import toast, { Toaster } from "svelte-french-toast";
+  import Cookies from "js-cookie";
+  import Logout from "../../components/Authentication/Logout.svelte";
   import PopUp from "../../components/Authentication/PopUp.svelte";
 
   let isEditMode = false;
@@ -22,7 +23,7 @@
     isPopupOpen = true;
   }
 
-  function handlePopupCancel() {
+  function handleCancelPopup() {
     isPopupOpen = false;
   }
 
@@ -37,6 +38,7 @@
       exitEditMode();
       return;
     }
+
     const password = event.detail;
     if (!password) {
       toast.error("Password is required.");
@@ -71,7 +73,7 @@
     updatedUserData.email = originalUserData.email;
 
     const urlChangeUser =
-      $serverURL + $serverEndpoints.authentication.changeuser;
+      $serverURL + $serverEndpoints.authentication.updateaccount;
     const updateResponse = await fetch(urlChangeUser, {
       method: "PATCH",
       headers: {
@@ -79,17 +81,24 @@
       },
       body: JSON.stringify(updatedUserData),
     });
+    const data = await updateResponse.json();
 
     if (updateResponse.ok) {
-      const data = await updateResponse.json();
-      toast.success("Profile updated successfully.");
+      toast.success(data.message);
       $session = data.session;
+      const userSession = {
+        userId: $session.userId,
+        user: {
+          fullname: $session.user.fullname,
+          email: $session.user.email,
+          username: $session.user.username,
+        },
+      };
+      Cookies.set("userSession", JSON.stringify(userSession), { expires: 7 });
       isPopupOpen = false;
       exitEditMode();
     } else {
-      const errorData = await updateResponse.json();
-      console.log(errorData);
-      toast.error("Failed to update profile.");
+      toast.error(data.message);
     }
   }
 </script>
@@ -98,7 +107,7 @@
 <!-- svelte-ignore a11y-label-has-associated-control -->
 <div class="container-fluid">
   {#if isPopupOpen}
-    <PopUp on:submit={handlePasswordSubmission} on:cancel={handlePopupCancel} />
+    <PopUp on:submit={handlePasswordSubmission} on:cancel={handleCancelPopup} />
   {/if}
   <div class="row">
     <div class="col-sm-6 col-xs mx-auto profile-box">

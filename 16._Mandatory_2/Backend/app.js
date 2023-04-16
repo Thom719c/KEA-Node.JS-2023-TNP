@@ -38,7 +38,7 @@ app.use(apiLimiter);
 
 app.use("/auth", rateLimit({
     windowMs: 15 * 60 * 1000,
-    max: 4,
+    max: 50,
     standardHeaders: true,
     legacyHeaders: false,
 }));

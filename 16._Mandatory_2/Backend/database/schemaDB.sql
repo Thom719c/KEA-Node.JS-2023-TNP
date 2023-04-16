@@ -6,11 +6,11 @@ CREATE DATABASE mandatory2_db;
 USE mandatory2_db;
 
 CREATE TABLE IF NOT EXISTS users (
-    id          INT           PRIMARY KEY AUTO_INCREMENT,
-    fullname    VARCHAR(50),
-    email       VARCHAR(50),
-    username    VARCHAR(20),
-    password    VARCHAR(255)
+  id          INT           PRIMARY KEY AUTO_INCREMENT,
+  fullname    VARCHAR(50),
+  email       VARCHAR(50),
+  username    VARCHAR(20),
+  password    VARCHAR(255)
 );
 
 CREATE TABLE IF NOT EXISTS password_reset_tokens (

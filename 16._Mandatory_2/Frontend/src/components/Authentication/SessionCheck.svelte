@@ -1,4 +1,3 @@
-<!-- SessionCheck.svelte -->
 <script>
     import { onMount } from "svelte";
     import Cookies from "js-cookie";

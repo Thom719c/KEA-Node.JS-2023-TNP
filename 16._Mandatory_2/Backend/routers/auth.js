@@ -36,14 +36,27 @@ router.get("/logout", (req, res) => {
     })
 });
 
-// TODO Make login
 router.post("/login", async (req, res) => {
-    const user = req.body;
-    console.log(user);
+    const { email, password } = req.body;
 
-    //req.session.user = userToSend;
-    //req.session.userId = uuidv4();
-    res.send({ message: "login" });
+    const user = await getUserByEmail(email);
+    if (!user) {
+        return res.status(404).send({ message: "E-mail or password is incorrect." });
+    }
+
+    const isPasswordMatch = await bcrypt.compare(password, user.password);
+    if (!isPasswordMatch) {
+        return res.status(404).send({ message: "E-mail or password is incorrect." });
+    }
+
+    req.session.userId = uuidv4();
+    req.session.user = {
+        fullname: user.fullname,
+        email: user.email,
+        username: user.username,
+    };
+
+    res.send({ message: "Login successfully", session: req.session });
 });
 
 router.post("/signup", async (req, res) => {
@@ -52,14 +65,14 @@ router.post("/signup", async (req, res) => {
     // Check if a user with the given username or email exists
     const userExist = await checkIfUserExist(user.email, user.username);
     if (userExist) {
-        return res.status(409).json({ message: "User with this username or e-mail already exists", errorStatus: "400" });
+        return res.status(409).json({ message: "User with this username or e-mail already exists" });
     }
 
     // Validate user input
     if (!user.fullname || !user.email ||
         !user.username || !user.password ||
         user.password !== user.confirmPassword) {
-        return res.status(400).send({ message: 'Invalid input', errorStatus: "400" });
+        return res.status(400).send({ message: 'Invalid input' });
     }
 
     // Hash the user's password
@@ -70,33 +83,83 @@ router.post("/signup", async (req, res) => {
     res.status(201).send({ message: 'User successfully created, you may now login' });
 });
 
+router.post("/validatepassword", async (req, res) => {
+    const { user, password } = req.body;
+
+    if (!user.username || !password) {
+        return res.status(400).json({ message: "Email/Username or password is missing." });
+    }
+
+    const data = await getUserByUsername(user.username);
+    if (!data) {
+        return res.status(401).send({ message: "Email/Username or password is incorrect." });
+    }
+
+    // check if the entered password matches the user's password
+    const isPasswordMatch = await bcrypt.compare(password, data.password);
+    if (isPasswordMatch) {
+        res.status(200).send({ message: 'Password was correct.' });
+    } else {
+        res.status(401).send({ message: "Email/Username or password is not correct." });
+    }
+});
+
 router.put("/reset-password", async (req, res) => {
     const { newPassword, confirmPassword, token } = req.body;
 
     // Validate the new password
     if (newPassword !== confirmPassword) {
-        return res.status(400).json({ message: 'Passwords do not match.', errorStatus: "400" });
+        return res.status(400).send({ message: 'Passwords do not match.' });
     }
 
     // Check if token is valid
-    const { email } = await getEmailByPasswordResetToken(token);
-    if (!email) {
-        return res.status(400).json({ message: 'Invalid token.', errorStatus: "400" });
+    const data = await getEmailByPasswordResetToken(token);
+    if (!data) {
+        return res.status(401).send({ message: 'Invalid token.' });
     }
-    
+
     const encryptedPassword = await bcrypt.hash(newPassword, saltRounds);
     // Update the user's password in the database
-    await updateUserPassword(encryptedPassword, email);
+    await updateUserPassword(encryptedPassword, data.email);
     await deletePasswordResetToken(token);
 
-    res.json({ message: 'Password reset.' });
+    res.send({ message: 'Password reset successful.' });
 });
 
 // TODO Make Update account
 router.patch("/update-account", async (req, res) => {
-    // getUserByUsername(username);
-    // update(updatedUser);
+    const user = req.body;
 
+    // Validate the request body
+    if (!user.username || !user.email) {
+        return res.status(400).json({ message: "Username and email are required." });
+    }
+
+    const data = await getUserByUsername(user.username);
+    if (!data) {
+        return res.status(401).send({ message: "User not found." });
+    }
+
+    const updatedUser = {
+        id: data.id,
+        fullname: user.fullname || data.foundUser,
+        email: user.email || data.email,
+        password: user.password ? await bcrypt.hash(user.password, saltRounds) : data.password
+    };
+    await update(updatedUser);
+
+    req.session.regenerate((error) => {
+        if (error) {
+            return res.status(500).send({ message: "Failed to regenerate session." });
+        }
+
+        req.session.user = {
+            fullname: updatedUser.fullname,
+            email: updatedUser.email,
+            username: data.username,
+        };
+        res.status(200).send({ message: "Profile updated successfully.", session: req.session });
+    });
 });
 
 

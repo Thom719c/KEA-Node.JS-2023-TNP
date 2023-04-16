@@ -18,38 +18,46 @@
         event.preventDefault();
         const url = $serverURL + $serverEndpoints.authentication.login;
         const userCredentials = { email: email, password: password };
-        await fetch(url, {
-            credentials: "include",
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userCredentials),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.message) {
-                    toast.error(data.message, {
-                        duration: 5000,
-                        position: "bottom-right",
-                        style: "border-radius: 200px; background: #333; color: #fff;",
-                    });
-                } else {
-                    $session = data.session;
-                    const options = {
-                        expires: 7, // expires in 7 days
-                        // httpOnly: true, // accessible only via HTTP(S) protocol, not via client-side scripts
-                        // secure: true, // transmitted only via HTTPS
-                    };
-                    Cookies.set(
-                        "userSession",
-                        JSON.stringify(data.session),
-                        options
-                    );
-                    navigate("/profile", { replace: true });
-                }
-            })
-            .catch((error) => console.log(error));
+
+        try {
+            const response = await fetch(url, {
+                credentials: "include",
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userCredentials),
+            });
+            const data = await response.json();
+
+            if (response.ok) {
+                $session = data.session;
+                const options = {
+                    expires: 7, // expires in 7 days
+                    // httpOnly: true,  // accessible only via HTTP(S) protocol, not via client-side scripts
+                    // secure: true,    // transmitted only via HTTPS
+                };
+                Cookies.set(
+                    "userSession",
+                    JSON.stringify(data.session),
+                    options
+                );
+                toast.success(data.message, {
+                    duration: 5000,
+                    position: "bottom-right",
+                    style: "border-radius: 200px; background: #333; color: #fff;",
+                });
+                navigate("/profile", { replace: true });
+            } else {
+                toast.error(data.message, {
+                    duration: 5000,
+                    position: "bottom-right",
+                    style: "border-radius: 200px; background: #333; color: #fff;",
+                });
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
 </script>
 
@@ -66,7 +74,9 @@
                     alt="Logo"
                 />
             </div>
-            <div class="col-lg-12 login-title text-gradient">Log in to Mandatory II</div>
+            <div class="col-lg-12 login-title text-gradient">
+                Log in to Mandatory II
+            </div>
 
             <div class="col-lg-12 login-form">
                 <div class="col-lg-12 login-form">

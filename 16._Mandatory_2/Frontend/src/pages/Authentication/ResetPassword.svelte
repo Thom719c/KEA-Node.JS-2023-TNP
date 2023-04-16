@@ -22,37 +22,41 @@
 
         const params = new URLSearchParams(window.location.search);
         const token = params.get("token");
-
         const url = $serverURL + $serverEndpoints.authentication.resetpassword;
-        await fetch(url, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-                email,
-                newPassword,
-                confirmPassword,
-                token,
-            }),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                if (data.errorStatus) {
-                    toast.error(data.message, {
-                        duration: 5000,
-                        position: "bottom-right",
-                        style: "border-radius: 200px; background: #333; color: #fff;",
-                    });
-                } else {
-                    toast.success(data.message, {
-                        duration: 5000,
-                        position: "bottom-right",
-                        style: "border-radius: 200px; background: #333; color: #fff;",
-                    });
-                    navigate("/login", { replace: true });
-                }
+
+        try {
+            const response = await fetch(url, {
+                method: "PUT",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                    email,
+                    newPassword,
+                    confirmPassword,
+                    token,
+                }),
             });
+
+            const data = await response.json();
+
+            const toastSettings = {
+                duration: 5000,
+                position: "bottom-right",
+                style: "border-radius: 200px; background: #333; color: #fff;",
+            };
+
+            if (response.ok) {
+                // @ts-ignore
+                toast.success(data.message, toastSettings);
+                navigate("/login", { replace: true });
+            } else {
+                // @ts-ignore
+                toast.error(data.message, toastSettings);
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
 </script>
 

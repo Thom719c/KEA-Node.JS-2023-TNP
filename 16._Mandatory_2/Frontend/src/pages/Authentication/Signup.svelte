@@ -22,7 +22,6 @@
             return;
         }
 
-        const url = $serverURL + $serverEndpoints.authentication.signup;
         const userCredentials = {
             fullname: fullname,
             email: email,
@@ -30,31 +29,36 @@
             password: password,
             confirmPassword: confirmPassword,
         };
-        await fetch(url, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-            },
-            body: JSON.stringify(userCredentials),
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.errorStatus) {
-                    toast.error(data.message, {
-                        duration: 5000,
-                        position: "bottom-right",
-                        style: "border-radius: 200px; background: #333; color: #fff;",
-                    });
-                } else {
-                    toast.success(data.message, {
-                        duration: 5000,
-                        position: "bottom-right",
-                        style: "border-radius: 200px; background: #333; color: #fff;",
-                    });
-                    navigate("/login", { replace: true });
-                }
-            })
-            .catch((error) => console.log(error));
+        
+        try {
+            const url = $serverURL + $serverEndpoints.authentication.signup;
+            const response = await fetch(url, {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify(userCredentials),
+            });
+
+            const data = await response.json();
+
+            if (response.ok) {
+                toast.success(data.message, {
+                    duration: 5000,
+                    position: "bottom-right",
+                    style: "border-radius: 200px; background: #333; color: #fff;",
+                });
+                navigate("/login", { replace: true });
+            } else {
+                toast.error(data.message, {
+                    duration: 5000,
+                    position: "bottom-right",
+                    style: "border-radius: 200px; background: #333; color: #fff;",
+                });
+            }
+        } catch (error) {
+            console.log(error);
+        }
     }
 </script>
 
@@ -71,7 +75,9 @@
                     alt="Logo"
                 />
             </div>
-            <div class="col-lg-12 signup-title text-gradient">Sign Up Free!</div>
+            <div class="col-lg-12 signup-title text-gradient">
+                Sign Up Free!
+            </div>
 
             <div class="col-lg-12 signup-form">
                 <div class="col-lg-12 signup-form">
@@ -148,8 +154,7 @@
 
                         <div class="col-lg-12">
                             <div class="col-lg-12 signup-button">
-                                <button
-                                    class="btn btn-outline-primary"
+                                <button class="btn btn-outline-primary"
                                     >Create</button
                                 >
                             </div>
