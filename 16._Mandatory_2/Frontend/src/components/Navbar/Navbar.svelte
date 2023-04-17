@@ -10,6 +10,7 @@
   import Signup from "../../pages/Authentication/Signup.svelte";
   import Forgot from "../../pages/Authentication/Forgot.svelte";
   import ResetPassword from "../../pages/Authentication/ResetPassword.svelte";
+  import UnityGame from "../../pages/UnityGame/UnityGame.svelte";
 </script>
 
 <Router>
@@ -44,6 +45,11 @@
           <li class="nav-item">
             <a class="nav-link" href="contact" use:link>Contact</a>
           </li>
+          {#if $session}
+            <li class="nav-item">
+              <a class="nav-link" href="unityGame" use:link>Unity Game</a>
+            </li>
+          {/if}
         </ul>
         <ul class="navbar-nav">
           {#if $session}
@@ -72,9 +78,7 @@
       <header tabindex="-1">
         <h1>Home</h1>
       </header>
-      <Homepage>
-        <h3>This is the home of the Svelte Family.</h3>
-      </Homepage>
+      <Homepage />
     </Route>
 
     <Route path="about">
@@ -106,6 +110,13 @@
         <h1>Profile</h1>
       </header>
       <Profile />
+    </PrivateRoute>
+
+    <PrivateRoute path="unityGame" let:location>
+      <header>
+        <h1>Just for fun Unity Game</h1>
+      </header>
+      <UnityGame />
     </PrivateRoute>
   </main>
 </Router>
