@@ -2,8 +2,8 @@
   import { session, serverURL, serverEndpoints } from "../../stores/stores.js";
   import toast, { Toaster } from "svelte-french-toast";
   import Cookies from "js-cookie";
-  import Logout from "../../components/Authentication/Logout.svelte.js";
-  import PopUp from "../../components/Authentication/PopUp.svelte.js";
+  import Logout from "../../components/Authentication/Logout.svelte";
+  import PopUp from "../../components/Authentication/PopUp.svelte";
 
   let isEditMode = false;
   let originalUserData = null;
