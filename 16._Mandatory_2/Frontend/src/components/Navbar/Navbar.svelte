@@ -4,7 +4,7 @@
   import Homepage from "../../pages/Frontpage/Home.svelte";
   import Contact from "../../pages/Contact/Contact.svelte";
   import PrivateRoute from "../PrivateRoutes/PrivateRoute.svelte";
-  import Profile from "../../Pages/Profile/Profile.svelte";
+  import Profile from "../../pages/Profile/Profile.svelte";
   import Login from "../../pages/Authentication/Login.svelte";
   import Logout from "../Authentication/Logout.svelte";
   import Signup from "../../pages/Authentication/Signup.svelte";

@@ -168,7 +168,7 @@
 
 <style>
     .signup-container {
-        width: 50em;
+        max-width: 50em;
     }
 
     .signup-box {

@@ -133,7 +133,7 @@
 
 <style>
     .login-container {
-        width: 50em;
+        max-width: 50em;
     }
 
     .login-box {
