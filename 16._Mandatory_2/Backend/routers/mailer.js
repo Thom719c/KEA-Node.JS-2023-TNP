@@ -32,7 +32,6 @@ router.post("/contact", async (req, res) => {
     }
 });
 
-// TODO Making timer so token only last for an hour
 router.post("/forgot-password", async (req, res) => {
     const email = req.body.email;
 
@@ -40,7 +39,7 @@ router.post("/forgot-password", async (req, res) => {
     const user = await getUserByEmail(email);
 
     if (!user) {
-        return res.status(400).json({ message: "No user with that email exists", errorStatus: "400" });
+        return res.status(400).json({ message: "No user with that email exists" });
     }
 
     // Save the token and user's email in the database
@@ -63,7 +62,6 @@ router.post("/forgot-password", async (req, res) => {
     });
 
     if (info.messageId) {
-        console.log("Message sent: %s", info.messageId);
         res.status(200).send({ message: "Email has been send to your account" });
     }
 });

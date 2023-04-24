@@ -1,46 +1,44 @@
 <script>
   import { serverURL, serverEndpoints } from "../../stores/stores.js";
   import toast, { Toaster } from "svelte-french-toast";
-  import { useNavigate, useLocation } from "svelte-navigator";
+  import { useNavigate } from "svelte-navigator";
 
   const navigate = useNavigate();
-  const location = useLocation();
 
   let email;
 
-  toast.error(email, {
-    duration: 5000,
-    position: "bottom-right",
-    style: "border-radius: 200px; background: #333; color: #fff;",
-  });
-
   async function handleChangePassword() {
     const url = $serverURL + $serverEndpoints.mailer.forgotpassword;
-    await fetch(url, {
-      credentials: "include",
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ email }),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.errorStatus) {
-          toast.error(data.message, {
-            duration: 5000,
-            position: "bottom-right",
-            style: "border-radius: 200px; background: #333; color: #fff;",
-          });
-        } else {
-          toast.success(data.message, {
-            duration: 5000,
-            position: "bottom-right",
-            style: "border-radius: 200px; background: #333; color: #fff;",
-          });
-          navigate("/login", { replace: true });
-        }
+
+    try {
+      const response = await fetch(url, {
+        credentials: "include",
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email }),
       });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        toast.success(data.message, {
+          duration: 5000,
+          position: "bottom-right",
+          style: "border-radius: 200px; background: #333; color: #fff;",
+        });
+        navigate("/login", { replace: true });
+      } else {
+        toast.error(data.message, {
+          duration: 5000,
+          position: "bottom-right",
+          style: "border-radius: 200px; background: #333; color: #fff;",
+        });
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 </script>
 

@@ -1,10 +1,9 @@
 <script>
-    import { useNavigate, useLocation } from "svelte-navigator";
+    import { useNavigate } from "svelte-navigator";
     import { serverURL, serverEndpoints } from "../../stores/stores.js";
     import toast, { Toaster } from "svelte-french-toast";
 
     const navigate = useNavigate();
-    const location = useLocation();
 
     let fullname;
     let email;

@@ -20,8 +20,12 @@
   >
     <div class="container-fluid">
       <a class="navbar-brand" href="/">
-        <!-- svelte-ignore a11y-missing-attribute -->
-        <img id="logo" src="src/assets/Mandatory2Logo.png" width="50" />
+        <img
+          id="logo"
+          src="src/assets/Mandatory2Logo.png"
+          width="50"
+          alt="Logo"
+        />
       </a>
       <button
         class="navbar-toggler"

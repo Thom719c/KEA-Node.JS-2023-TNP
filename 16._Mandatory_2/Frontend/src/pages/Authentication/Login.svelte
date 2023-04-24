@@ -1,5 +1,5 @@
 <script>
-    import { useNavigate, useLocation } from "svelte-navigator";
+    import { useNavigate } from "svelte-navigator";
     import {
         serverURL,
         serverEndpoints,
@@ -9,7 +9,6 @@
     import Cookies from "js-cookie";
 
     const navigate = useNavigate();
-    const location = useLocation();
 
     let email;
     let password;
@@ -104,15 +103,14 @@
 
                         <div class="form-group text-format row mb-2">
                             <p class="col">
-                                Don’t have an account? <a
-                                    class="aStyling"
-                                    data-panel=".panel-signup"
-                                    href="/signup">Sign Up Free!</a
-                                >
+                                Don’t have an account?
+                                <a class="aStyling" href="/signup">
+                                    Sign Up Free!
+                                </a>
                             </p>
-                            <a class="col aStyling text-end" href="/forgot"
-                                >Forgot password?</a
-                            >
+                            <a class="col aStyling text-end" href="/forgot">
+                                Forgot password?
+                            </a>
                         </div>
 
                         <div class="col-lg-12">

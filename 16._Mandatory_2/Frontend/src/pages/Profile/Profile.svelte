@@ -6,8 +6,8 @@
   import PopUp from "../../components/Authentication/PopUp.svelte";
 
   let isEditMode = false;
-  let originalUserData = null;
   let isPopupOpen = false;
+  let originalUserData = null;
 
   function enterEditMode() {
     isEditMode = true;

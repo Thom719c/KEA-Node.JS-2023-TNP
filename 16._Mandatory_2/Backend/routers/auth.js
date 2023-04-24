@@ -126,7 +126,6 @@ router.put("/reset-password", async (req, res) => {
     res.send({ message: 'Password reset successful.' });
 });
 
-// TODO Make Update account
 router.patch("/update-account", async (req, res) => {
     const user = req.body;
 
@@ -168,23 +167,5 @@ router.delete("/delete-account", async (req, res) => {
 
 });
 
-/* router.post("/login", async (req, res, next) => {
-    const user = req.body;
-
-    // user password in plaintext is "hunter42"
-    const hashedPassword = "$2b$12$wjS6tcjhhvFLG9jVwo9pUO1NfUA3tCUAG4c4.881BBBFSQbNqfT/m";
-
-    const isSame = await bcrypt.compare(
-        user.password,
-        hashedPassword
-    );
-
-    if (isSame) {
-        req.session.user = user.email;
-        res.status(200).send({ messsage: "User found!", session: req.session });
-    } else {
-        res.status(404).send({ messsage: "User not found!" });
-    }
-}); */
 
 export default router;

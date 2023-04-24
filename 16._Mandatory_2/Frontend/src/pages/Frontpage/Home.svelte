@@ -16,10 +16,10 @@
         <!-- svelte-ignore a11y-invalid-attribute -->
         <a class="btn btn-outline-secondary" href="#">More is coming soon</a>
     </div>
-    <!-- svelte-ignore a11y-missing-attribute -->
     <img
         class="img-container img-fluid mx-auto d-block boxshadow"
         src="src/assets/Mandatory2BigLogo.png"
+        alt="Logo"
     />
 </div>
 

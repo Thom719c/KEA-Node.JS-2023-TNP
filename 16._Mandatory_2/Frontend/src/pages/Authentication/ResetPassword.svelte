@@ -20,7 +20,7 @@
             return;
         }
 
-        const params = new URLSearchParams(window.location.search);
+        const params = new URLSearchParams($location.search);
         const token = params.get("token");
         const url = $serverURL + $serverEndpoints.authentication.resetpassword;
 
@@ -62,7 +62,7 @@
 
 <Toaster />
 <!-- svelte-ignore a11y-label-has-associated-control -->
-<div class="container-fluid">
+<div class="container-fluid reset-container">
     <div class="row">
         <div class="col-6 mx-auto box">
             <div class="col-lg-12 mt-5">
@@ -121,6 +121,10 @@
 </div>
 
 <style>
+    .reset-container {
+        max-width: 50em;
+    }
+
     .box {
         margin-top: 75px;
         height: auto;
