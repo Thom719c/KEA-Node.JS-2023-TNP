@@ -18,10 +18,10 @@ const transporter = nodemailer.createTransport({
 router.post("/contact", async (req, res) => {
     if (req.body && req.body.message !== "") {
         const info = await transporter.sendMail({
-            from: `"Feedback" ${data.email}`,
+            from: `"Feedback" ${req.body.email}`,
             to: "nodejskeatp@gmail.com",
-            subject: data.subject,
-            text: data.message
+            subject: req.body.subject,
+            text: req.body.message
         });
         console.log('Message sent: %s', info.messageId);
         res.status(200)
