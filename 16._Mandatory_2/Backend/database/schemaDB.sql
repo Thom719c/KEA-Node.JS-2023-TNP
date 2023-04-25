@@ -21,5 +21,5 @@ CREATE TABLE IF NOT EXISTS password_reset_tokens (
 );
 
 -- just an example
-INSERT INTO users(fullname,email,username,password) 
-VALUES('Developer test','dev@dev.com','Developer','$2b$10$J00gmUUqXz0QIQ63j6RfsO1nuwxXYugxCP7mxeZNiqodeAriko7wq')
+INSERT INTO users(fullname,email,username,password)
+VALUES('FULLNAME','Example@example.com','USERNAME','ENCRYPTED-PASSWORD')
