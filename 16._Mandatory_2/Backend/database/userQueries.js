@@ -22,7 +22,7 @@ async function create(user) {
     // Insert the new user data into the database
     const query = 'INSERT INTO users (fullname, email, username, password) VALUES (?, ?, ?, ?)';
     const values = [user.fullname, user.email, user.username, user.hashedPassword];
-    db.query(query, values);
+    await db.query(query, values);
 }
 
 async function update(user) {
