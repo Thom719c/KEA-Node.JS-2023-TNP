@@ -14,6 +14,17 @@ io.on("connection", (socket) => {
     /* socket.on("ready event", (data) => {
         console.log("From the ready event:", data.data);
     }); */
+    
+    socket.on("client choose a color", (data) => {
+        // broadcasts to ALL sockets in the io namespace
+        io.emit("a color was choosen", data);
+
+        // sends to all EXCEPT the socket itself
+        // socket.broadcast.emit("a color was choosen", data);
+
+        // ONLY emits to the socket itself
+        // socket.emit("a color was choosen", data);
+    });
 });
 
 
