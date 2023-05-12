@@ -27,6 +27,10 @@ const io = new Server(server, {
     }
 });
 
+/* const wrap = middleware => (socket, next) => middleware(socket.request, {}, next);
+io.use(wrap(sessionMiddleware)); */
+// socket.request.session.username
+
 io.on("connection", (socket) => {
     console.log("A client connected", socket.id);
 
